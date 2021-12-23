@@ -20,15 +20,50 @@ Route::get('/', function () {
 
 Auth::routes([
     'register' => false, //menghilangkan fitur regis
-    'reset' => false //menghilangkan fitur forgot
+    'reset' => false, //menghilangkan fitur forgot
 ]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+Route::group(['prefix' => 'admin', 'middleware' => [
+    'auth',
+    'role:Admin',
+]], function (){
+    Route::get('/', function(){
+        return 'halaman admin';
+    });
+    
+    Route::get('profile', function(){
+        return 'halaman profil admin';
+    });
+});
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['prefix' => 'pengguna', 'middleware' => [
+    'auth',
+    'role:Pengguna',
+]], function (){
+    Route::get('/', function(){
+        return 'halaman pengguna';
+    });
+    
+    Route::get('profile', function(){
+        return 'halaman profil pengguna';
+    });
+});
 
-Auth::routes();
+    Route::group(['prefix' => 'pembelian', 'middleware' => [
+        'auth',
+        'role:Admin|Kasir',
+    ]], function (){
+        Route::get('/', function(){
+            return 'halaman pembelian';
+        });
+        
+        Route::get('laporan', function(){
+            return 'halaman laporan pembelian';
+        });
+    });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
