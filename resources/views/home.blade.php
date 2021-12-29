@@ -10,7 +10,7 @@ Dashboard
 
 @section('content')
 
-Welcome to this beautiful admin planel
+Selamat Datang Di Halaman Admin Pondok Yatim
 
 
 @stop

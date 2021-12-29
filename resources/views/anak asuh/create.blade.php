@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-12">
-                <h1 class="m-0">Tambah Data Pengasuh</h1>
+                <h1 class="m-0">Tambah Data Anak</h1>
             </div>
         </div>
     </div>
@@ -16,15 +16,15 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Data Pengasuh</div>
+                <div class="card-header">Data Anak</div>
                 <div class="card-body">
-                   <form action="{{route('pengasuh.store')}}" method="post">
+                   <form action="{{route('anak_asuh.store')}}" method="post">
                         @csrf
-                       
+                
                         <div class="form-group">
-                            <label for="">Masukan Nama Pengasuh</label>
-                            <input type="text" name="nama_pengasuh" class="form-control @error('nama_pengasuh') is-invalid @enderror">
-                             @error('nama_pengasuh')
+                            <label for="">Masukan Nama Anak</label>
+                            <input type="text" name="nama_anak" class="form-control @error('nama_anak') is-invalid @enderror">
+                             @error('nama_anak')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -43,6 +43,15 @@
                             <label for="">Tanggal Lahir</label>
                             <input type="date" name="tgl_lahir" class="form-control @error('tgl_lahir') is-invalid @enderror">
                              @error('tgl_lahir')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="">Status</label>
+                            <input type="text" name="status" class="form-control @error('status') is-invalid @enderror">
+                             @error('status')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

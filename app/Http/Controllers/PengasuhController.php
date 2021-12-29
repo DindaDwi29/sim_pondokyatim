@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\pengasuh;
+use App\Models\Pengasuh;
 use Illuminate\Http\Request;
 
 class PengasuhController extends Controller
@@ -37,7 +37,10 @@ class PengasuhController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required',
+            'nama_pengasuh' => 'required',
+            'jk' => 'required',
+            'tgl_lahir' => 'required',
+            
         ]);
 
         $pengasuh = new Pengasuh;

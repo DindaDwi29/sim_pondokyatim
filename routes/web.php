@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PengasuhController;
+use App\Http\Controllers\AnakAsuhController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,6 +74,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
     Route::get('pengarang', function(){
         return view ('pengarang.index');
     })->middleware(['role:admin']);
+
+    Route::resource('pengasuh', PengasuhController::class)->middleware(['role:Admin']);
+    Route::resource('anak_asuh', AnakAsuhController::class)->middleware(['role:Admin']);
 });
 
 

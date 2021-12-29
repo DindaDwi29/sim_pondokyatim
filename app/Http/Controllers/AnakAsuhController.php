@@ -14,7 +14,8 @@ class AnakAsuhController extends Controller
      */
     public function index()
     {
-        //
+        $anak_asuh = anak_asuh::all();
+        return view('anak asuh.index', compact('anak_asuh'));
     }
 
     /**
@@ -24,7 +25,7 @@ class AnakAsuhController extends Controller
      */
     public function create()
     {
-        //
+        return view('anak asuh.create');
     }
 
     /**
@@ -35,7 +36,20 @@ class AnakAsuhController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nama_anak' => 'required',
+            'jk' => 'required',
+            'tgl_lahir' => 'required',
+            'status' => 'required',
+        ]);
+
+        $anak_asuh = new anak_asuh;
+        $anak_asuh->nama_anak = $request->nama_anak;
+        $anak_asuh->jk = $request->jk;
+        $anak_asuh->tgl_lahir = $request->tgl_lahir;
+        $anak_asuh->status = $request->status;
+        $anak_asuh->save();
+        return redirect()->route('anak_asuh.index');
     }
 
     /**
@@ -44,9 +58,11 @@ class AnakAsuhController extends Controller
      * @param  \App\Models\anak_asuh  $anak_asuh
      * @return \Illuminate\Http\Response
      */
-    public function show(anak_asuh $anak_asuh)
+    public function show($id)
     {
-        //
+        $anak_asuh = anak_asuh::findOrFail($id);
+        return view('anak_asuh.show', compact('anak_asuh'));
+
     }
 
     /**
@@ -55,9 +71,10 @@ class AnakAsuhController extends Controller
      * @param  \App\Models\anak_asuh  $anak_asuh
      * @return \Illuminate\Http\Response
      */
-    public function edit(anak_asuh $anak_asuh)
+    public function edit($id)
     {
-        //
+        $anak_asuh = anak_asuh::findOrFail($id);
+        return view('anak_asuh.edit', compact('anak_asuh'));
     }
 
     /**
@@ -67,9 +84,18 @@ class AnakAsuhController extends Controller
      * @param  \App\Models\anak_asuh  $anak_asuh
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, anak_asuh $anak_asuh)
+    public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required',
+        ]);
+        $anak_asuh = anak_asuh::findOrFail($id);
+        $anak_asuh->nama_anak = $request->nama_anak;
+        $anak_asuh->jk = $request->jk;
+        $anak_asuh->tgl_lahir = $request->tgl_lahir;
+        $anak_asuh->status = $request->status;
+        $anak_asuh->save();
+        return redirect()->route('anak_asuh.index');
     }
 
     /**
@@ -78,8 +104,10 @@ class AnakAsuhController extends Controller
      * @param  \App\Models\anak_asuh  $anak_asuh
      * @return \Illuminate\Http\Response
      */
-    public function destroy(anak_asuh $anak_asuh)
+    public function destroy($id)
     {
-        //
+        $anak_asuh = anak_asuh::findOrFail($id);
+        $anak_asuh->delete();
+        return redirect()->route('anak_asuh.index');
     }
 }

@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1 class="m-0">Data Pengasuh</h1>
+                    <h1 class="m-0">Data Anak Asuh</h1>
                 </div>
             </div>
         </div>
@@ -17,8 +17,8 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        Data Pengasuh
-                        <a href="{{ route('pengasuh.create') }}" class="btn btn-sm btn-outline-primary float-right">Tambah
+                        Data Anak
+                        <a href="{{ route('anak_asuh.create') }}" class="btn btn-sm btn-outline-primary float-right">Tambah
                             Data</a>
                     </div>
                     <div class="card-body">
@@ -26,25 +26,27 @@
                             <table class="table">
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Pengasuh</th>
+                                    <th>Nama Anak Asuh</th>
                                     <th>Jenis Kelamin</th>
                                     <th>Tanggal Lahir</th>
+                                    <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
                                 @php $no=1; @endphp
-                                @foreach ($pengasuh as $data)
+                                @foreach ($anak_asuh as $data)
                                     <tr>
                                         <td>{{ $no++ }}</td>
-                                        <td>{{ $data->nama_pengasuh }}</td>
+                                        <td>{{ $data->nama_anak }}</td>
                                         <td>{{ $data->jk }}</td>
                                         <td>{{ $data->tgl_lahir }}</td>
+                                        <td>{{ $data->status }}</td>
                                         <td>
-                                            <form action="{{ route('pengasuh.destroy', $data->id) }}" method="post">
+                                            <form action="{{ route('anak_asuh.destroy', $data->id) }}" method="post">
                                                 @method('delete')
                                                 @csrf
-                                                <a href="{{ route('pengasuh.edit', $data->id) }}"
+                                                <a href="{{ route('anak_asuh.edit', $data->id) }}"
                                                     class="btn btn-outline-info">Edit</a>
-                                                <a href="{{ route('pengasuh.show', $data->id) }}"
+                                                <a href="{{ route('anak_asuh.show', $data->id) }}"
                                                     class="btn btn-outline-warning">Show</a>
                                                 <button type="submit" class="btn btn-outline-danger"
                                                     onclick="return confirm('Apakah anda yakin menghapus ini?');">Delete</button>
