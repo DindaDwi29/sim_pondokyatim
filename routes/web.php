@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PengasuhController;
 use App\Http\Controllers\AnakAsuhController;
+use App\Http\Controllers\KegiatanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,6 +78,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
 
     Route::resource('pengasuh', PengasuhController::class)->middleware(['role:Admin']);
     Route::resource('anak_asuh', AnakAsuhController::class)->middleware(['role:Admin']);
+    Route::resource('kegiatan', KegiatanController::class)->middleware(['role:Admin']);
 });
 
 

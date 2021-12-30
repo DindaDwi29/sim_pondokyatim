@@ -14,24 +14,25 @@ class kegiatan extends Model
 
     public function kegiatan()
     {
-        return $this->belongsTo('App\Models\Kegiatan', 'id');
+        return $this->belongsTo('App\Models\kegiatan', 'id');
     }
 
     public function image()
     {
-        if ($this->image && file_exists(public_path('image/book/' . $this->image))) {
-            return asset('image/book/' . $this->image);
+        if ($this->image && file_exists(public_path('images/kegiatan/' . $this->image))) {
+            return asset('images/kegiatan/' . $this->image);
         } else {
-            return asset('image/no_image.png');
+            return asset('images/no_image.png');
         }
     }
 
     public function deleteImage()
     {
-        if ($this->image && file_exists(public_path('image/book/' . $this->image))) {
-            return unlink(public_path('image/book/' . $this->image));
+        if ($this->image && file_exists(public_path('images/kegiatan/' . $this->image))) {
+            return unlink(public_path('images/kegiatan/' . $this->image));
         }
     }
 }
-}
+
+
 

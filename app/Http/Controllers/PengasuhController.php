@@ -37,6 +37,7 @@ class PengasuhController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
+            'id_pengasuh' => 'required',
             'nama_pengasuh' => 'required',
             'jk' => 'required',
             'tgl_lahir' => 'required',
@@ -44,6 +45,7 @@ class PengasuhController extends Controller
         ]);
 
         $pengasuh = new Pengasuh;
+        $pengasuh->id_pengasuh = $request->id_pengasuh;
         $pengasuh->nama_pengasuh = $request->nama_pengasuh;
         $pengasuh->jk = $request->jk;
         $pengasuh->tgl_lahir = $request->tgl_lahir;
@@ -59,8 +61,8 @@ class PengasuhController extends Controller
      */
     public function show($id)
     {
-        $pengasuh = Pengasuh::findOrFail($id);
-        return view('pengasuh.show', compact('pengasuh'));
+        // $pengasuh = Pengasuh::findOrFail($id);
+        // return view('pengasuh.show', compact('pengasuh'));
 
     }
 
@@ -86,9 +88,13 @@ class PengasuhController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'name' => 'required',
+            'id_pengasuh' => 'required',
+            'nama_pengasuh' => 'required',
+            'jk' => 'required',
+            'tgl_lahir' => 'required',
         ]);
         $pengasuh = Pengasuh::findOrFail($id);
+        $pengasuh->id_pengasuh = $request->id_pengasuh;
         $pengasuh->nama_pengasuh = $request->nama_pengasuh;
         $pengasuh->jk = $request->jk;
         $pengasuh->tgl_lahir = $request->tgl_lahir;

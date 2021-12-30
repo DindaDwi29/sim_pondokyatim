@@ -26,6 +26,7 @@
                             <table class="table">
                                 <tr>
                                     <th>No</th>
+                                    <th>ID </th>
                                     <th>Nama Pengasuh</th>
                                     <th>Jenis Kelamin</th>
                                     <th>Tanggal Lahir</th>
@@ -35,6 +36,7 @@
                                 @foreach ($pengasuh as $data)
                                     <tr>
                                         <td>{{ $no++ }}</td>
+                                        <td>{{ $data->id_pengasuh }}</td>
                                         <td>{{ $data->nama_pengasuh }}</td>
                                         <td>{{ $data->jk }}</td>
                                         <td>{{ $data->tgl_lahir }}</td>
@@ -44,10 +46,8 @@
                                                 @csrf
                                                 <a href="{{ route('pengasuh.edit', $data->id) }}"
                                                     class="btn btn-outline-info">Edit</a>
-                                                <a href="{{ route('pengasuh.show', $data->id) }}"
-                                                    class="btn btn-outline-warning">Show</a>
                                                 <button type="submit" class="btn btn-outline-danger"
-                                                    onclick="return confirm('Apakah anda yakin menghapus ini?');">Delete</button>
+                                                    onclick="return confirm('Apakah anda yakin menghapus ini?');">Hapus</button>
                                             </form>
                                         </td>
                                     </tr>

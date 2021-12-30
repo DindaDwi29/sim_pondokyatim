@@ -41,6 +41,7 @@ class AnakAsuhController extends Controller
             'jk' => 'required',
             'tgl_lahir' => 'required',
             'status' => 'required',
+            'id_pengasuh' => 'required',
         ]);
 
         $anak_asuh = new anak_asuh;
@@ -48,6 +49,7 @@ class AnakAsuhController extends Controller
         $anak_asuh->jk = $request->jk;
         $anak_asuh->tgl_lahir = $request->tgl_lahir;
         $anak_asuh->status = $request->status;
+        $anak_asuh->id_pengasuh = $request->id_pengasuh;
         $anak_asuh->save();
         return redirect()->route('anak_asuh.index');
     }
