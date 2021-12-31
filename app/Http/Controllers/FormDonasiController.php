@@ -14,7 +14,8 @@ class FormDonasiController extends Controller
      */
     public function index()
     {
-        //
+        $form_donasi = form_donasi::all();
+        return view('form_donasi.index', compact('form_donasi'));
     }
 
     /**
@@ -24,7 +25,7 @@ class FormDonasiController extends Controller
      */
     public function create()
     {
-        //
+        return view('form_donasi.create');
     }
 
     /**
@@ -35,7 +36,29 @@ class FormDonasiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nama_donatur' => 'required',
+            'email' => 'required',
+            'no_telp' => 'required',
+            'nominal' => 'required',
+            'tgl_transfer' => 'required',
+            'nama_bank' => 'required',
+            'no_rek' => 'required',
+            'transfer_ke_bank' => 'required',
+            
+        ]);
+
+        $form_donasi = new form_donasi;
+        $form_donasi->nama_donatur = $request->nama_donatur;
+        $form_donasi->email = $request->email;
+        $form_donasi->no_telp = $request->no_telp;
+        $form_donasi->nominal = $request->nominal;
+        $form_donasi->tgl_transfer = $request->tgl_transfer;
+        $form_donasi->nama_bank = $request->nama_bank;
+        $form_donasi->no_rek = $request->no_rek;
+        $form_donasi->transfer_ke_bank = $request->transfer_ke_bank;
+        $form_donasi->save();
+        return redirect()->route('pengasuh.index');
     }
 
     /**
@@ -44,9 +67,10 @@ class FormDonasiController extends Controller
      * @param  \App\Models\form_donasi  $form_donasi
      * @return \Illuminate\Http\Response
      */
-    public function show(form_donasi $form_donasi)
+    public function show($id)
     {
-        //
+        $form_donasi = form_donasi::findOrFail($id);
+        return view('form_donasi.show', compact('form_donasi'));
     }
 
     /**
@@ -55,9 +79,10 @@ class FormDonasiController extends Controller
      * @param  \App\Models\form_donasi  $form_donasi
      * @return \Illuminate\Http\Response
      */
-    public function edit(form_donasi $form_donasi)
+    public function edit($id)
     {
-        //
+        $form_donasi = form_donasi::findOrFail($id);
+        return view('form_donasi.edit', compact('form_donasi'));
     }
 
     /**

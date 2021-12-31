@@ -46,6 +46,8 @@
                                                 @csrf
                                                 <a href="{{ route('pengasuh.edit', $data->id) }}"
                                                     class="btn btn-outline-info">Edit</a>
+                                                <a href="{{ route('pengasuh.show', $data->id) }}"
+                                                    class="btn btn-outline-warning">Tampil</a>
                                                 <button type="submit" class="btn btn-outline-danger"
                                                     onclick="return confirm('Apakah anda yakin menghapus ini?');">Hapus</button>
                                             </form>

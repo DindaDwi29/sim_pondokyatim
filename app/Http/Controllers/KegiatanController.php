@@ -76,7 +76,7 @@ class KegiatanController extends Controller
      * @param  \App\Models\kegiatan  $kegiatan
      * @return \Illuminate\Http\Response
      */
-    public function edit(kegiatan $kegiatan)
+    public function edit($id)
     {
         $kegiatan = Kegiatan::findOrFail($id);
         return view('kegiatan.edit', compact('kegiatan'));

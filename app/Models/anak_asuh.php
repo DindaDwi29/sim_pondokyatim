@@ -9,14 +9,15 @@ class anak_asuh extends Model
 {
     use HasFactory;
     
-
-    protected $fillable =['id','nama_anak','jk','tgl_lahir'];
-    protected $visible =['id','nama_anak','jk','tgl_lahir'];
+    
+    protected $fillable =['id','id_pengasuh','nama_anak','jk','tgl_lahir'];
+    protected $visible =['id','id_pengasuh','nama_anak','jk','tgl_lahir'];
 
     public $timestamps = true;
 
     public function pengasuh()
     {
-        return $this->hasMany('App\Models\anak_asuh');
+        return $this->hasMany('App\Models\anak_asuh','id_pengasuh');
     }
 }
+

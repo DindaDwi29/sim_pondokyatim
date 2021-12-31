@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1 class="m-0">Data Anak Asuh</h1>
+                    <h1 class="m-0">Data Anak</h1>
                 </div>
             </div>
         </div>
@@ -17,7 +17,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        Data Anak
+                        <h4>Data Anak</h4>
                         <a href="{{ route('anak_asuh.create') }}" class="btn btn-sm btn-outline-primary float-right">Tambah
                             Data</a>
                     </div>
@@ -27,10 +27,9 @@
                                 <tr>
                                     <th>No</th>
                                     <th>ID Pengasuh</th>
-                                    <th>Anak Asuh</th>
+                                    <th>Nama Anak</th>
                                     <th>Jenis Kelamin</th>
                                     <th>Tanggal Lahir</th>
-                                    <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
                                 @php $no=1; @endphp
@@ -41,7 +40,6 @@
                                         <td>{{ $data->nama_anak }}</td>
                                         <td>{{ $data->jk }}</td>
                                         <td>{{ $data->tgl_lahir }}</td>
-                                        <td>{{ $data->status }}</td>
                                         <td>
                                             <form action="{{ route('anak_asuh.destroy', $data->id) }}" method="post">
                                                 @method('delete')
@@ -49,9 +47,9 @@
                                                 <a href="{{ route('anak_asuh.edit', $data->id) }}"
                                                     class="btn btn-outline-info">Edit</a>
                                                 <a href="{{ route('anak_asuh.show', $data->id) }}"
-                                                    class="btn btn-outline-warning">Tampil</a>
+                                                    class="btn btn-outline-warning">Show</a>
                                                 <button type="submit" class="btn btn-outline-danger"
-                                                    onclick="return confirm('Apakah anda yakin menghapus ini?');">Hapus</button>
+                                                    onclick="return confirm('Apakah anda yakin menghapus ini?');">Delete</button>
                                             </form>
                                         </td>
                                     </tr>

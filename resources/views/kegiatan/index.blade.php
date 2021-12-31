@@ -41,12 +41,12 @@
                                         <td>{{ $data->isi }}</td>
                                         <td>{{ $data->tgl_kegiatan }}</td>
                                         <td>
-                                            <form action="{{ route('kegiatan.destroy', $data->judul) }}" method="post">
-                                                @method('delete')
+                                            <form action="{{ route('kegiatan.destroy', $data->id) }}" method="post">
+                                                @method('DELETE')
                                                 @csrf
-                                                <a href="{{ route('kegiatan.edit', $data->judul) }}"
+                                                <a href="{{ route('kegiatan.edit', $data->id) }}"
                                                     class="btn btn-outline-info">Edit</a>
-                                                <a href="{{ route('kegiatan.show', $data->judul) }}"
+                                                <a href="{{ route('kegiatan.show', $data->id) }}"
                                                     class="btn btn-outline-warning">Tampil</a>
                                                 <button type="submit" class="btn btn-outline-danger"
                                                     onclick="return confirm('Apakah anda yakin menghapus ini?');">Hapus</button>

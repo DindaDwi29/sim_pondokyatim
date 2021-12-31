@@ -61,8 +61,8 @@ class PengasuhController extends Controller
      */
     public function show($id)
     {
-        // $pengasuh = Pengasuh::findOrFail($id);
-        // return view('pengasuh.show', compact('pengasuh'));
+        $pengasuh = Pengasuh::findOrFail($id);
+        return view('pengasuh.show', compact('pengasuh'));
 
     }
 

@@ -17,7 +17,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        Donaso
+                        Donasi
                         <a href="{{ route('kegiatan.create') }}" class="btn btn-sm btn-outline-primary float-right">Buat
                             Donasi</a>
                     </div>
@@ -26,27 +26,35 @@
                             <table class="table">
                                 <tr>
                                     <th>No</th>
-                                    <th>Judul</th>
-                                    <th>Gambar</th>
-                                    <th>Isi</th>
-                                    <th>Tanggal Kegiatan</th>
+                                    <th>Nama Donatur</th>
+                                    <th>Email</th>
+                                    <th>No Telp</th>
+                                    <th>Nominal</th>
+                                    <th>Tanggal Transfer</th>
+                                    <th>Nama Bank</th>
+                                    <th>No Rekening</th>
+                                    <th>Transfer Ke Bank</th>
                                     <th>Aksi</th>
                                 </tr>
                                 @php $no=1; @endphp
-                                @foreach ($kegiatan as $data)
+                                @foreach ($form_donasi as $data)
                                     <tr>
                                         <td>{{ $no++ }}</td>
-                                        <td>{{ $data->judul }}</td>
-                                        <td><img src="{{$data->image()}}" alt="" style="width:150px; height:150px;" alt="image"></td>
-                                        <td>{{ $data->isi }}</td>
-                                        <td>{{ $data->tgl_kegiatan }}</td>
+                                        <td>{{ $data->nama_donatur }}</td>
+                                        <td>{{ $data->email }}</td>
+                                        <td>{{ $data->no_telp }}</td>
+                                        <td>{{ $data->nominal }}</td>
+                                        <td>{{ $data->tgl_transfer }}</td>
+                                        <td>{{ $data->nama_bank }}</td>
+                                        <td>{{ $data->no_rek }}</td>
+                                        <td>{{ $data->transfer_ke_bank }}</td>
                                         <td>
-                                            <form action="{{ route('kegiatan.destroy', $data->judul) }}" method="post">
-                                                @method('delete')
+                                            <form action="{{ route('form_donasi.destroy', $data->id) }}" method="post">
+                                                @method('DELETE')
                                                 @csrf
-                                                <a href="{{ route('kegiatan.edit', $data->judul) }}"
+                                                <a href="{{ route('form_donasi.edit', $data->id) }}"
                                                     class="btn btn-outline-info">Edit</a>
-                                                <a href="{{ route('kegiatan.show', $data->judul) }}"
+                                                <a href="{{ route('form_donasi.show', $data->id) }}"
                                                     class="btn btn-outline-warning">Tampil</a>
                                                 <button type="submit" class="btn btn-outline-danger"
                                                     onclick="return confirm('Apakah anda yakin menghapus ini?');">Hapus</button>
