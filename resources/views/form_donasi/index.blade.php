@@ -18,7 +18,7 @@
                 <div class="card">
                     <div class="card-header">
                         Donasi
-                        <a href="{{ route('kegiatan.create') }}" class="btn btn-sm btn-outline-primary float-right">Buat
+                        <a href="{{ route('form_donasi.create') }}" class="btn btn-sm btn-outline-primary float-right">Buat
                             Donasi</a>
                     </div>
                     <div class="card-body">

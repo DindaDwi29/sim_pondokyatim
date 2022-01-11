@@ -58,7 +58,7 @@ class FormDonasiController extends Controller
         $form_donasi->no_rek = $request->no_rek;
         $form_donasi->transfer_ke_bank = $request->transfer_ke_bank;
         $form_donasi->save();
-        return redirect()->route('pengasuh.index');
+        return redirect()->route('form_donasi.index');
     }
 
     /**
@@ -92,9 +92,32 @@ class FormDonasiController extends Controller
      * @param  \App\Models\form_donasi  $form_donasi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, form_donasi $form_donasi)
+    public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'nama_donatur' => 'required',
+            'email' => 'required',
+            'no_telp' => 'required',
+            'nominal' => 'required',
+            'tgl_transfer' => 'required',
+            'nama_bank' => 'required',
+            'no_rek' => 'required',
+            'transfer_ke_bank' => 'required',
+            
+        ]);
+
+        $form_donasi = new form_donasi;
+        $form_donasi->nama_donatur = $request->nama_donatur;
+        $form_donasi->email = $request->email;
+        $form_donasi->no_telp = $request->no_telp;
+        $form_donasi->nominal = $request->nominal;
+        $form_donasi->tgl_transfer = $request->tgl_transfer;
+        $form_donasi->nama_bank = $request->nama_bank;
+        $form_donasi->no_rek = $request->no_rek;
+        $form_donasi->transfer_ke_bank = $request->transfer_ke_bank;
+        $form_donasi->save();
+        return redirect()->route('form_donasi.index');
+
     }
 
     /**
@@ -103,8 +126,10 @@ class FormDonasiController extends Controller
      * @param  \App\Models\form_donasi  $form_donasi
      * @return \Illuminate\Http\Response
      */
-    public function destroy(form_donasi $form_donasi)
+    public function destroy($id)
     {
-        //
+        $form_donasi = form_donasi::findOrFail($id);
+        $form_donasi->delete();
+        return redirect()->route('form_donasi.index');
     }
 }

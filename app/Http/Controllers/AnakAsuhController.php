@@ -107,7 +107,7 @@ class AnakAsuhController extends Controller
             'status' => 'required',
         ]);
 
-        $anak_asuh = AnakAsuh::findOrFail($id);
+        $anak_asuh = anak_asuh::findOrFail($id);
         $anak_asuh->id_pengasuhs = $request->id_pengasuhs;
         $anak_asuh->nama_anak = $request->nama_anak;
         $anak_asuh->jk = $request->jk;
