@@ -10,10 +10,10 @@ class anak_asuh extends Model
     use HasFactory;
     
     
-    protected $fillable =['id','id_pengasuh','nama_anak','jk','tgl_lahir'];
-    protected $visible =['id','id_pengasuh','nama_anak','jk','tgl_lahir'];
+    protected $fillable =['id','id_pengasuh','nama_anak','jk','tgl_lahir','status'];
+    protected $visible =['id','id_pengasuh','nama_anak','jk','tgl_lahir','status'];
 
-    public $timestamps = true;
+    public $timestamps = true;  
 
     public function pengasuh()
     {

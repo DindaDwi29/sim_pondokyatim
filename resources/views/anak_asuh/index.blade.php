@@ -30,6 +30,7 @@
                                     <th>Nama Anak</th>
                                     <th>Jenis Kelamin</th>
                                     <th>Tanggal Lahir</th>
+                                    <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
                                 @php $no=1; @endphp
@@ -40,6 +41,7 @@
                                         <td>{{ $data->nama_anak }}</td>
                                         <td>{{ $data->jk }}</td>
                                         <td>{{ $data->tgl_lahir }}</td>
+                                        <td>{{ $data->status }}</td>
                                         <td>
                                             <form action="{{ route('anak_asuh.destroy', $data->id) }}" method="post">
                                                 @method('delete')

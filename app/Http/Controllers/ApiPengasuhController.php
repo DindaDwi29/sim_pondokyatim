@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\User;
+use App\Models\Pengasuh;
 use Illuminate\Http\Request;
 
-class ApiUserController extends Controller
+class ApiPengasuhController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,25 +13,23 @@ class ApiUserController extends Controller
      */
     public function index()
     {
-        $user = user::all();
-        // ('name', 'Dinda Dwi O')
-        // ->get();
+        $pengasuh = Pengasuh::all();
 
-    //     if ($user->count() >= 1){
+         if ($pengasuh->count() >= 1){
             return response()->json([
                 'status' => true,
                 'code' => 200,
                 'message' => 'berhasil',
-                'data' =>$user,
+                'data' =>$pengasuh,
             ]);
-    //     }else{
-    //     return response()->json([
-    //         'status' => false,
-    //         'code' => 404,
-    //         'message' => 'gagal',
-    //         'data' =>$user,
-    //     ]);
-    // }
+        }else{
+        return response()->json([
+            'status' => false,
+            'code' => 404,
+            'message' => 'gagal',
+            'data' =>$pengasuh,
+        ]);
+    }
     }
 
     /**
@@ -53,17 +50,16 @@ class ApiUserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = bcrypt ($request->password);
-        $user->save();
+        $pengasuh = new Pengasuh();
+        $pengasuh->nama_pengasuh = $request->nama_pengasuh;
+        $pengasuh->jk = $request->jk;
+        $pengasuh->tgl_lahir = $request->tgl_lahir;
+        $pengasuh->save();
         return response()->json([
             'success' => true,
-            'message' => 'Data Kategori Berhasil Dibuat',
-            'data' => $user,
+            'message' => 'Data Pengasuh Berhasil Dibuat',
+            'data' => $pengasuh,
         ],201);
-        
     }
 
     /**
@@ -74,17 +70,17 @@ class ApiUserController extends Controller
      */
     public function show($id)
     {
-        $user = user::findOrFail($id);
-        if ($user){
+        $pengasuh = Pengasuh::findOrFail($id);
+        if ($pengasuh){
             return response()->json([
                 'status' => true,
-                'message' => 'Show Data User',
-                'data' =>$user,
+                'message' => 'Show Data Pengasuh',
+                'data' =>$pengasuh,
             ]);
         }else{
         return response()->json([
             'status' => false,
-            'message' => 'Data User Tidak Ditemukan',
+            'message' => 'Data Pengasuh Tidak Ditemukan',
             'data' =>[],
         ], 404);
     }
@@ -110,21 +106,21 @@ class ApiUserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = user::find($id);
-        if ($user){
-            $user->name = $request->name;
-            $user->email = $request->email;
-            $user->password = bcrypt ($request->password);
-            $user->save();
+        $pengasuh = Pengasuh::find($id);
+        if ($pengasuh){
+            $pengasuh->nama_pengasuh = $request->nama_pengasuh;
+            $pengasuh->jk = $request->jk;
+            $pengasuh->tgl_lahir = $request->tgl_lahir;
+            $pengasuh->save();
             return response()->json([
                 'success' => true,
-                'message' => 'Data Kategori Berhasil Diupdate',
+                'message' => 'Data Pengasuh Berhasil Diupdate',
                 'data' => $user,
             ],201);
         }else{
             return response()->json([
                 'success' => false,
-                'message' => 'Data User Tidak Ditemukan',
+                'message' => 'Data Pengasuh Tidak Ditemukan',
                 'data' =>[],
             ], 404);
         }
@@ -138,18 +134,18 @@ class ApiUserController extends Controller
      */
     public function destroy($id)
     {
-        $user = user::find($id);
-        if ($user){
-            $user->delete();
+        $pengasuh = pengasuh::find($id);
+        if ($pengasuh){
+            $pengasuh->delete();
             return response()->json([
                 'success' => true,
-                'message' => 'Data Kategori Berhasil Dihapus',
-                'data' => $user,
+                'message' => 'Data Pengasuh Berhasil Dihapus',
+                'data' => $pengasuh,
             ],201);
         }else{
             return response()->json([
                 'success' => false,
-                'message' => 'Data User Tidak Ditemukan',
+                'message' => 'Data Pengasuh Tidak Ditemukan',
                 'data' =>[],
             ], 404);
         }
