@@ -34,7 +34,7 @@
                             <div class="form-group">
                                 <label for="">Jenis Kelamin</label>
                                 <input type="text" name="jk" value="{{ $pengasuh->jk }}"
-                                    class="form-control @error('nama_pengasuh') is-invalid @enderror">
+                                    class="form-control @error('jk') is-invalid @enderror">
                                 @error('jk')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

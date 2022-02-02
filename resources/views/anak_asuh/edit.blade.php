@@ -11,6 +11,16 @@
                             @csrf
                             @method('put')
                             <div class="form-group">
+                                <label for="">ID Pengasuh</label>
+                                <input type="text" name="id_pengasuh" value="{{ $anak_asuh->id_pengasuh }}"
+                                    class="form-control @error('id_pengasuh') is-invalid @enderror">
+                                @error('id_pengasuh')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
                                 <label for="">Nama Anak</label>
                                 <input type="text" name="nama_anak" value="{{ $anak_asuh->nama_anak }}"
                                     class="form-control @error('nama_anak') is-invalid @enderror">

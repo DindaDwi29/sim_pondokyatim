@@ -46,10 +46,10 @@ class KegiatanController extends Controller
 
         $kegiatan = new Kegiatan;
         $kegiatan->judul = $request->judul;
-        if ($request->hasFile('images')) {
-            $kegiatan = $request->file('images');
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
             $name = rand(1000, 9999) . $image->getClientOriginalName();
-            $kegiatan->move('images/kegiatan/', $name);
+            $image->move('image/kegiatan', $name);
             $kegiatan->image  = $name;
         }
         $kegiatan->isi = $request->isi;
@@ -101,9 +101,9 @@ class KegiatanController extends Controller
         $kegiatan->judul = $request->judul;
         if ($request->hasFile('image')) {
             $kegiatan->deleteImage();
-            $kegiatan = $request->file('image');
+            $image = $request->file('image');
             $name = rand(1000, 9999) . $image->getClientOriginalName();
-            $kegiatan->move('image/kegiatan/', $name);
+            $image->move('image/kegiatan', $name);
             $kegiatan->image = $name;
         }
         $kegiatan->isi = $request->isi;

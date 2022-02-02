@@ -19,17 +19,17 @@ class kegiatan extends Model
 
     public function image()
     {
-        if ($this->image && file_exists(public_path('images/kegiatan/' . $this->image))) {
-            return asset('images/kegiatan/' . $this->image);
+        if ($this->image && file_exists(public_path('image/kegiatan/' . $this->image))) {
+            return asset('image/kegiatan/' . $this->image);
         } else {
-            return asset('images/no_image.png');
+            return asset('image/no_image.png');
         }
     }
 
     public function deleteImage()
     {
-        if ($this->image && file_exists(public_path('images/kegiatan/' . $this->image))) {
-            return unlink(public_path('images/kegiatan/' . $this->image));
+        if ($this->image && file_exists(public_path('image/kegiatan/' . $this->image))) {
+            return unlink(public_path('image/kegiatan/' . $this->image));
         }
     }
 }

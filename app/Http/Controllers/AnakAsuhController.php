@@ -100,7 +100,7 @@ class AnakAsuhController extends Controller
     {
         //
         $validated = $request->validate([
-            'id_pengasuhs' => 'required',
+            'id_pengasuh' => 'required',
             'nama_anak' => 'required',
             'jk' => 'required',
             'tgl_lahir' => 'required',
@@ -108,10 +108,11 @@ class AnakAsuhController extends Controller
         ]);
 
         $anak_asuh = anak_asuh::findOrFail($id);
-        $anak_asuh->id_pengasuhs = $request->id_pengasuhs;
+        $anak_asuh->id_pengasuh = $request->id_pengasuh;
         $anak_asuh->nama_anak = $request->nama_anak;
         $anak_asuh->jk = $request->jk;
         $anak_asuh->tgl_lahir = $request->tgl_lahir;
+        $anak_asuh->status = $request->status;
         $anak_asuh->save();
         return redirect()->route('anak_asuh.index');
 

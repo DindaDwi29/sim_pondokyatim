@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 // ->middleware('auth')
 
@@ -81,8 +81,23 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
     Route::resource('anak_asuh', AnakAsuhController::class)->middleware(['role:Admin']);
     Route::resource('kegiatan', KegiatanController::class)->middleware(['role:Admin']);
     Route::resource('form_donasi', FormDonasiController::class)->middleware(['role:Admin']);
+
 });
-
-
-
-
+route::get('index', function() {
+    return view('pronen.index');
+});
+route::get('about', function() {
+    return view('pronen.about');
+});
+route::get('kegiatan', function() {
+    return view('pronen.kegiatan');
+});
+route::get('berita', function() {
+    return view('pronen.berita');
+});
+route::get('kontak', function() {
+    return view('pronen.kontak');
+});
+route::get('donasi', function() {
+    return view('pronen.donasi');
+});

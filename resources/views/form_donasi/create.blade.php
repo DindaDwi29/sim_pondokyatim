@@ -22,6 +22,15 @@
                         @csrf
                        
                         <div class="form-group">
+                            <label for="">Masukan ID DOnasi</label>
+                            <input type="text" name="id_donasi" class="form-control @error('id_donasi') is-invalid @enderror">
+                             @error('id_donasi')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
                             <label for="">Masukan Nama Donatur</label>
                             <input type="text" name="nama_donatur" class="form-control @error('nama_donatur') is-invalid @enderror">
                              @error('nama_donatur')

@@ -37,6 +37,7 @@ class FormDonasiController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
+            'id_donasi' => 'required',
             'nama_donatur' => 'required',
             'email' => 'required',
             'no_telp' => 'required',
@@ -49,6 +50,7 @@ class FormDonasiController extends Controller
         ]);
 
         $form_donasi = new form_donasi;
+        $form_donasi->id_donasi = $request->id_donasi;
         $form_donasi->nama_donatur = $request->nama_donatur;
         $form_donasi->email = $request->email;
         $form_donasi->no_telp = $request->no_telp;
@@ -95,6 +97,7 @@ class FormDonasiController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
+            'id_donasi' => 'required',
             'nama_donatur' => 'required',
             'email' => 'required',
             'no_telp' => 'required',
@@ -107,6 +110,7 @@ class FormDonasiController extends Controller
         ]);
 
         $form_donasi = new form_donasi;
+        $form_donasi->id_donasi = $request->id_donasi;
         $form_donasi->nama_donatur = $request->nama_donatur;
         $form_donasi->email = $request->email;
         $form_donasi->no_telp = $request->no_telp;
