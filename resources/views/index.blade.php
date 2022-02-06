@@ -71,29 +71,27 @@
                     <div class="row align-items-center">
                         <div class="col-xl-3 col-lg-3">
                             <div class="logo">
-                                <a href="index.html">
                                     <img src="asset/img/panti1.png" alt="" height="100" width="200">
-                                </a>
                             </div>
                         </div>
                         <div class="col-xl-9 col-lg-9">
                             <div class="main-menu">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="index.html">Beranda</a></li>
-                                        <li><a href="about.html">Sejarah</a></li>
-                                        <li><a href="#">Kegiatan & Berita <img src="asset/img/panah-bawah.png" alt="" height="10" width="10"></a>
+                                        <li><a href="{{ route('beranda') }}">Beranda</a></li>
+                                        <li><a href="{{ route('sejarah') }}">Sejarah</a></li>
+                                        <li><a href="#">Informasi <img src="asset/img/panah-bawah.png" alt="" height="10" width="10"></a>
                                             <ul class="submenu">
-                                                <li><a href="kegiatan.html">Kegiatan</a></li>
-                                                <li><a href="berita.html">Berita</a></li>
+                                                <li><a href="{{ route('kegiatan') }}">Kegiatan</a></li>
+                                                <li><a href="{{ route('berita') }}">Berita</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="kontak.html">Kontak</a></li>
+                                        <li><a href="{{ route('kontak') }}">Kontak</a></li>
                                     </ul>
                                 </nav>
                                 <div class="Appointment">
                                     <div class="book_btn d-none d-lg-block">
-                                        <a data-scroll-nav='1' href="#">Buat Donasi</a>
+                                        <li><a data-scroll-nav='1' href="{{ route('donasi') }}">Buat Donasi</a></li>
                                     </div>
                                 </div>
                             </div>
@@ -117,7 +115,7 @@
                         <div class="slider_text ">
                             <span><h3>Yayasan Panti Yatim Indonesia</h3>
                             <p>Laznas PYI Adalah Lembaga Amil Zakat Nasional (LAZNAS) berdasarkan SK Kemenag RI No.120 Tahun 2019. Bertekad menjadi lembaga pengelola dana ZISWAF yang berkhidmat menangani anak yatim/piatu dan terlantar serta memberdayakan kaum dhuafa. Berkantor pusat di kota Bandung dan cabang di Jakarta dan Bekasi. Kami saat ini mengayomi langsung lebih dari 300 anak yatim dhuafa dalam 29 asrama, 4000 anak luar asrama, dan kami masih terus berkembang.</p>
-                            <a href="About.html" class="boxed-btn3">Learn More
+                            <a href="{{ route('sejarah') }}" class="boxed-btn3">Learn More
                             </a>
                         </div>
                     </div>
@@ -148,7 +146,7 @@
                         <div class="help_content">
                             <h5>Kegiatan Rutin Membaca Al - Qur'an</h5>
                             <p></p>
-                            <a href="#" class="read_more">Read More</a>
+                            <a href="{{ route('kegiatan') }}" class="read_more">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -162,7 +160,7 @@
                         <div class="help_content">
                             <h5>Kegiatan Qurban</h5>
                             <p></p>
-                            <a href="#" class="read_more">Read More</a>
+                            <a href="{{ route('kegiatan') }}" class="read_more">Baca Selengkapnya</a>
                         </div>
                     </div>
                 </div>
@@ -176,7 +174,7 @@
                         <div class="help_content">
                             <h4>Kegiatan Mengaji Bersama</h4>
                             <p></p>
-                            <a href="#" class="read_more">Read More</a>
+                            <a href="{{ route('kegiatan') }}" class="read_more">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -185,37 +183,7 @@
     </div>
     <!-- reson_area_end  -->
 
-    <!-- latest_activites_area_start  -->
-    <div class="latest_activites_area">
-        <div class=" video_bg_1 video_activite  d-flex align-items-center justify-content-center">
-            <a class="popup-video" href="https://youtu.be/2SF876QFH2E">
-                <i class="flaticon-ui"></i>
-            </a>
-        </div>
-        <div class="container">
-            <div class="row justify-content-end">
-                <div class="col-lg-7">
-                    <div class="activites_info">
-                        <div class="section_title">
-                            <h3> <span>Watch Our Latest  </span><br>
-                                Activities</h3>
-                        </div>
-                        <p class="para_1">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do 
-                            eiusmod tempor incididunt  ut labore dolore magna aliqua. 
-                            enim minim veniam, quis nostrud exercitation.</p class="para_1">
-                        <p class="para_2">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do 
-                            eiusmod tempor incididunt  ut labore dolore magna aliqua. 
-                            enim minim veniam, quis nostrud exercitation. tempor 
-                            incididunt  ut labore dolore magna aliqua. enim minim 
-                            veniam, quis nostrud exercitation.</p>
-                        <a href="#" data-scroll-nav='1' class="boxed-btn4">Donate Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- latest_activites_area_end  -->
-
+   
     <br>
     <br>
     <br>
@@ -340,11 +308,11 @@
                             </div>
                             <div class="newsinfo">
                                 <span>Jan 14, 2022</span>
-                                <a href="single-blog.html">
+                                <a href="{{ route('berita') }}">
                                     <h3>Di Bekasi Puluhan Anak Yatim Terima Bantuan Dari PYI Yatim dan Zakat</h3>
                                 </a>
                                 <p>Puluhan anak yatim terdampak Covid-19 terima bantuan berupa paket sembako dari PYI Yatim dan Zakat pada, Jumat (7/1). Anak-anak tersebut tinggal di sekitar Jl. Prima Harapan Regency, Kelurahan Harapan Baru, Kecamatan Bekasi Utara, Kota Bekasi. Paket sembako yang...</p>
-                                <a class="read_more" href="single-blog.html">Read More</a>
+                                <a class="read_more" href="{{ route('berita') }}">Read More</a>
                             </div>
                         </div>
                         <div class="single__blog d-flex align-items-center">
@@ -353,11 +321,11 @@
                             </div>
                             <div class="newsinfo">
                                 <span>Jan 19, 2022</span>
-                                <a href="single-blog.html">
+                                <a href="{{ route('berita') }}">
                                     <h3>PYI Yatim dan Zakat Salurkan Bansos Untuk Bantu Kebutuhan Pangan Yatim</h3>
                                 </a>
                                 <p>PYI Yatim dan Zakat salurkan bantuan sosial (bansos) untuk bantu memenuhi kebutuhan pangan yatim terdampak Covid-19 pada, Selasa (18/1). Bansos yang disalurkan berupa paket sembako berisi beras, mie instan, minyak goreng, gula pasir, teh celup dan vitamin c. Bansos...</p>
-                                <a class="read_more" href="single-blog.html">Read More</a>
+                                <a class="read_more" href="{{ route('berita') }}">Read More</a>
                             </div>
                         </div>
                         <div class="single__blog d-flex align-items-center">
@@ -366,11 +334,11 @@
                             </div>
                             <div class="newsinfo">
                                 <span> Jan 25, 2022</span>
-                                <a href="single-blog.html">
+                                <a href="{{ route('berita') }}">
                                     <h3>PYI Yatim dan Zakat Salurkan Bantuan di Acara Pembukaan Asrama Baru</h3>
                                 </a>
                                 <p>PYI Yatim dan Zakat salurkan bantuan kepada anak yatim dan warga dhuafa di acara pembukaan asrama baru pada, Sabtu (22/1). Bantuan yang disalurkan berbentuk paket sembako yang berisi beras, mie instan, gula pasir dan teh celup. Bantuan tersebut dibagikan setelah acara...</p>
-                                <a class="read_more" href="single-blog.html">Read More</a>
+                                <a class="read_more" href="{{ route('berita') }}">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -380,66 +348,7 @@
     </div>
     <!-- news__area_end  -->
 
-    <div data-scroll-index='1' class="make_donation_area section_padding">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="section_title text-center mb-55">
-                        <h3><span>Buat Donasi</span></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <form action="#" class="donation_form">
-                        <div class="row align-items-center">
-                            <div class="col-md-4">
-                                <div class="single_amount">
-                                    <div class="input_field">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                              <span class="input-group-text" id="basic-addon1">Rp.</span>
-                                            </div>
-                                            <input type="text" class="form-control" placeholder="0" aria-label="Username" aria-describedby="basic-addon1">
-                                          </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="single_amount">
-                                   <div class="fixed_donat d-flex align-items-center justify-content-between">
-                                       <div class="select_prise">
-                                           <h4>Select Amount:</h4>
-                                       </div>
-                                        <div class="single_doonate"> 
-                                            <input type="radio" id="blns_1" name="radio-group" checked>
-                                            <label for="blns_1">10</label>
-                                        </div>
-                                        <div class="single_doonate"> 
-                                            <input type="radio" id="blns_2" name="radio-group" checked>
-                                            <label for="blns_2">30</label>
-                                        </div>
-                                        <div class="single_doonate"> 
-                                            <input type="radio" id="Other" name="radio-group" checked>
-                                            <label for="Other">Other</label>
-                                        </div>
-                                   </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="donate_now_btn text-center">
-                        <a href="#" class="boxed-btn4">Donasi Sekarang</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
+   
 
     <!-- footer_start  -->
     <footer class="footer">

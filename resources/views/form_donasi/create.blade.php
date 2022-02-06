@@ -22,7 +22,7 @@
                         @csrf
                        
                         <div class="form-group">
-                            <label for="">Masukan ID DOnasi</label>
+                            <label for="">Masukan ID Donasi</label>
                             <input type="text" name="id_donasi" class="form-control @error('id_donasi') is-invalid @enderror">
                              @error('id_donasi')
                                 <span class="invalid-feedback" role="alert">

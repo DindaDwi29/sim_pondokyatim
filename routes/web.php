@@ -83,21 +83,29 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
     Route::resource('form_donasi', FormDonasiController::class)->middleware(['role:Admin']);
 
 });
-route::get('index', function() {
+route::get('pronen', function() {
     return view('pronen.index');
 });
-route::get('about', function() {
+route::get('/beranda', function() {
+    return view('pronen.index');
+})->name('beranda');
+
+route::get('/sejarah', function() {
     return view('pronen.about');
-});
-route::get('kegiatan', function() {
+})->name('sejarah');
+
+route::get('/kegiatan', function() {
     return view('pronen.kegiatan');
-});
-route::get('berita', function() {
+})->name('kegiatan');
+
+route::get('/berita', function() {
     return view('pronen.berita');
-});
-route::get('kontak', function() {
+})->name('berita');
+
+route::get('/kontak', function() {
     return view('pronen.kontak');
-});
-route::get('donasi', function() {
+})->name('kontak');
+
+route::get('/donasi', function() {
     return view('pronen.donasi');
-});
+})->name('donasi');

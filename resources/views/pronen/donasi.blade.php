@@ -70,29 +70,27 @@
                     <div class="row align-items-center">
                         <div class="col-xl-3 col-lg-3">
                             <div class="logo">
-                                <a href="index.html">
                                 <img src="{{ asset('asset/img/panti1.png') }}" alt="" height="100" width="200">
-                                </a>
                             </div>
                         </div>
                         <div class="col-xl-9 col-lg-9">
                             <div class="main-menu">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="index.html">Beranda</a></li>
-                                        <li><a href="About.html">Sejarah</a></li>
-                                        <li><a href="#">Kegiatan & Berita <img src="{{ asset('asset/img/panah-bawah.png') }}" alt="" height="10" width="10"></a>
+                                        <li><a href="{{ route('beranda') }}">Beranda</a></li>
+                                        <li><a href="{{ route('sejarah') }}">Sejarah</a></li>
+                                        <li><a href="#">Informasi <img src="{{ asset('asset/img/panah-bawah.png') }}" alt="" height="10" width="10"></a>
                                             <ul class="submenu">
-                                                <li><a href="blog.html">Kegiatan</a></li>
-                                                <li><a href="single-blog.html">Berita</a></li>
+                                                <li><a href="{{ route('kegiatan') }}">Kegiatan</a></li>
+                                                <li><a href="{{ route('berita') }}">Berita</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="contact.html">Kontak</a></li>
+                                        <li><a href="{{ route('kontak') }}">Kontak</a></li>
                                     </ul>
                                 </nav>
                                 <div class="Appointment">
                                     <div class="book_btn d-none d-lg-block">
-                                        <a data-scroll-nav='1' href="#">Buat Donasi</a>
+                                        <a data-scroll-nav='1' href="{{ route('donasi') }}">Buat Donasi</a>
                                     </div>
                                 </div>
                             </div>
@@ -123,146 +121,109 @@
 
 
     <!--================Blog Area =================-->
-    <section class="blog_area section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mb-5 mb-lg-0">
-                    <div class="blog_left_sidebar">
-                        <article class="blog_item">
-                            <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="{{ asset('asset/img/quran.jpeg') }}" alt="">
-                                <a href="#" class="blog_item_date">
-                                    <h3>15</h3>
-                                    <p>Jan</p>
-                                </a>
-                            </div>
-
                             <div class="blog_details">
                                 <a class="d-inline-block">
-                                    <h2>Kegiatan Rutin Membaca Al - Qur'an</h2>
+                                    <h2>FORM DONASI</h2>
                                 </a>
-                                <p>That dominion stars lights dominion divide years for fourth have don't stars is that
-                                    he earth it first without heaven in place seed it second morning saying.</p>
-                                <ul class="blog-info-link">
-                                    <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
-                                    <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
-                                </ul>
-                            </div>
-                        </article>
+                                <div class="form-group">
+                            <label for="">Nama :</label>
+                            <input type="text" name="nama_donatur" class="form-control @error('nama_donatur') is-invalid @enderror">
+                             @error('nama_donatur')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="">Email</label>
+                            <input type="text" name="email" class="form-control @error('email') is-invalid @enderror">
+                             @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="">No Telepon</label>
+                            <input type="text" name="no_telp" class="form-control @error('no_telp') is-invalid @enderror">
+                             @error('no_telp')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
 
-                        <article class="blog_item">
-                            <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="{{ asset('asset/img/kegiatan3.jpg') }}" alt="">
-                                <a href="#" class="blog_item_date">
-                                    <h3>15</h3>
-                                    <p>Jan</p>
-                                </a>
-                            </div>
+                        <div class="form-group">
+                            <label for="">Nominal</label>
+                            <input type="text" name="nominal" class="form-control @error('nominal') is-invalid @enderror">
+                             @error('nominal')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="">Tanggal Transfer</label>
+                            <input type="date" name="tgl_transfer" class="form-control @error('tgl_transfer') is-invalid @enderror">
+                             @error('tgl_transfer')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="">Nama Bank</label>
+                            <select type="" name="nama_bank" class="form-select @error('nama_bank') is-invalid @enderror">
+                            <option selected>Pilih Nama Bank</option>
+                            <option value="1">BRI</option>
+                            <option value="2">BCA</option>
+                            <option value="3">Mandiri</option>
+                            <option value="4">BNI</option>
+                        </select>
+                             @error('nama_bank')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="">No Rekening</label>
+                            <input type="text" name="no_rek" class="form-control @error('no_rek') is-invalid @enderror">
+                             @error('no_rek')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="">Transfer Ke Bank</label>
+                            <select type="" name="tranfer_ke_bank" class="form-select @error('tranfer_ke_bank') is-invalid @enderror">
+                            <option selected>Pilih Nama Bank</option>
+                            <option value="1">BRI</option>
+                            <option value="2">BCA</option>
+                            <option value="3">Mandiri</option>
+                            <option value="4">BNI</option>
+                        </select>
+                             @error('tranfer_ke_bank')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <button type="reset" class="btn btn-outline-warning">Reset</button>
+                            <button type="submit" class="btn btn-outline-primary">Donasi Sekarang</button>
+                        </div>
+                           
 
-                            <div class="blog_details">
-                                <a class="d-inline-block" href="single-blog.html">
-                                    <h2>Kegiatan Qurban</h2>
-                                </a>
-                                <p>That dominion stars lights dominion divide years for fourth have don't stars is that
-                                    he earth it first without heaven in place seed it second morning saying.</p>
-                                <ul class="blog-info-link">
-                                    <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
-                                    <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
-                                </ul>
                             </div>
-                        </article>
+                        
 
-                        <article class="blog_item">
-                            <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="{{ asset('asset/img/kegiatan4.jpg') }}" alt="">
-                                <a href="#" class="blog_item_date">
-                                    <h3>15</h3>
-                                    <p>Jan</p>
-                                </a>
-                            </div>
-
-                            <div class="blog_details">
-                                <a class="d-inline-block" href="single-blog.html">
-                                    <h2>Kegiatan Mengaji Bersama</h2>
-                                </a>
-                                <p>That dominion stars lights dominion divide years for fourth have don't stars is that
-                                    he earth it first without heaven in place seed it second morning saying.</p>
-                                <ul class="blog-info-link">
-                                    <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
-                                    <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
-                                </ul>
-                            </div>
-                        </article>
-
-                        <article class="blog_item">
-                            <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="{{ asset('asset/img/blog/single_blog_4.png') }}" alt="">
-                                <a href="#" class="blog_item_date">
-                                    <h3>15</h3>
-                                    <p>Jan</p>
-                                </a>
-                            </div>
-
-                            <div class="blog_details">
-                                <a class="d-inline-block" href="single-blog.html">
-                                    <h2>Google inks pact for new 35-storey office</h2>
-                                </a>
-                                <p>That dominion stars lights dominion divide years for fourth have don't stars is that
-                                    he earth it first without heaven in place seed it second morning saying.</p>
-                                <ul class="blog-info-link">
-                                    <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
-                                    <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
-                                </ul>
-                            </div>
-                        </article>
-
-                        <article class="blog_item">
-                            <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="{{ asset('asset/img/blog/single_blog_5.png') }}" alt="">
-                                <a href="#" class="blog_item_date">
-                                    <h3>15</h3>
-                                    <p>Jan</p>
-                                </a>
-                            </div>
-
-                            <div class="blog_details">
-                                <a class="d-inline-block" href="single-blog.html">
-                                    <h2>Google inks pact for new 35-storey office</h2>
-                                </a>
-                                <p>That dominion stars lights dominion divide years for fourth have don't stars is that
-                                    he earth it first without heaven in place seed it second morning saying.</p>
-                                <ul class="blog-info-link">
-                                    <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
-                                    <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
-                                </ul>
-                            </div>
-                        </article>
-
-                        <nav class="blog-pagination justify-content-center d-flex">
-                            <ul class="pagination">
-                                <li class="page-item">
-                                    <a href="#" class="page-link" aria-label="Previous">
-                                    <img src="{{ asset('asset/img/back.png') }}" alt="" height="30" width="30">
-                                    </a>
-                                </li>
-                                <li class="page-item">
-                                    <a href="#" class="page-link">1</a>
-                                </li>
-                                <li class="page-item active">
-                                    <a href="#" class="page-link">2</a>
-                                </li>
-                                <li class="page-item">
-                                    <a href="#" class="page-link" aria-label="Next">
-                                    <img src="{{ asset('asset/img/next.png') }}" alt="" height="30" width="30">
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                        
     <!--================Blog Area =================-->
 
     <!-- footer_start  -->

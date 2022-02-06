@@ -71,29 +71,27 @@
                     <div class="row align-items-center">
                         <div class="col-xl-3 col-lg-3">
                             <div class="logo">
-                                <a href="index.html">
                                 <img src="{{ asset('asset/img/panti1.png') }}" alt="" height="100" width="200">
-                                </a>
                             </div>
                         </div>
                         <div class="col-xl-9 col-lg-9">
                             <div class="main-menu">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="index.html">Beranda</a></li>
-                                        <li><a href="About.html">Sejarah</a></li>
-                                        <li><a href="#">Kegiatan & Berita <img src="{{ asset('asset/img/panah-bawah.png') }}" alt="" height="10" width="10"></a>
+                                        <li><a href="{{ route('beranda') }}">Beranda</a></li>
+                                        <li><a href="{{ route('sejarah') }}">Sejarah</a></li>
+                                        <li><a href="#">Informasi<img src="{{ asset('asset/img/panah-bawah.png') }}" alt="" height="10" width="10"></a>
                                             <ul class="submenu">
-                                                <li><a href="blog.html">Kegiatan</a></li>
-                                                <li><a href="single-blog.html">Berita</a></li>
+                                                <li><a href="{{ route('kegiatan') }}">Kegiatan</a></li>
+                                                <li><a href="{{ route('berita') }}">Berita</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="contact.html">Kontak</a></li>
+                                        <li><a href="{{ route('kontak') }}">Kontak</a></li>
                                     </ul>
                                 </nav>
                                 <div class="Appointment">
                                     <div class="book_btn d-none d-lg-block">
-                                        <a data-scroll-nav='1' href="#">Buat Donasi</a>
+                                        <a data-scroll-nav='1' href="{{ route('donasi') }}">Buat Donasi</a>
                                     </div>
                                 </div>
                             </div>

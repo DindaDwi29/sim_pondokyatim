@@ -71,29 +71,27 @@
                     <div class="row align-items-center">
                         <div class="col-xl-3 col-lg-3">
                             <div class="logo">
-                                <a href="index.html">
                                 <img src="{{ asset('asset/img/panti1.png') }}" alt="" height="100" width="200">
-                                </a>
                             </div>
                         </div>
                         <div class="col-xl-9 col-lg-9">
                             <div class="main-menu">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="index.html">Beranda</a></li>
-                                        <li><a href="About.html">Sejarah</a></li>
-                                        <li><a href="#">Kegiatan & Berita <img src="{{ asset('asset/img/panah-bawah.png') }}" alt="" height="10" width="10"></a>
+                                        <li><a href="{{ route('beranda') }}">Beranda</a></li>
+                                        <li><a href="{{ route('sejarah') }}">Sejarah</a></li>
+                                        <li><a href="#">Informasi <img src="{{ asset('asset/img/panah-bawah.png') }}" alt="" height="10" width="10"></a>
                                             <ul class="submenu">
-                                                <li><a href="blog.html">Kegiatan</a></li>
-                                                <li><a href="single-blog.html">Berita</a></li>
+                                                <li><a href="{{ route('kegiatan') }}">Kegiatan</a></li>
+                                                <li><a href="{{ route('berita') }}">Berita</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="contact.html">Kontak</a></li>
+                                        <li><a href="{{ route('kontak') }}l">Kontak</a></li>
                                     </ul>
                                 </nav>
                                 <div class="Appointment">
                                     <div class="book_btn d-none d-lg-block">
-                                        <a data-scroll-nav='1' href="#">Buat Donasi</a>
+                                        <a data-scroll-nav='1' href="{{ route('donasi') }}">Buat Donasi</a>
                                     </div>
                                 </div>
                             </div>
@@ -177,38 +175,7 @@
                             <p>SMS Center / Whatsapp Center       : 081-2211-85-555</p><br>
                             <p>Mail Center        : mail@pantiyatim.or.id</p><br>
                         </div>
-                    <div class="col-12">
-                        <h2 class="contact-title">Get in Touch</h2>
-                    </div>
-                    <div class="col-lg-8">
-                        <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Name"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email">
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="Enter Subject">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group mt-3">
-                                <button type="submit" class="button button-contactForm boxed-btn">Send</button>
-                            </div>
-                        </form>
-                    </div>
+                   
                     </div>
                 </div>
             </div>
