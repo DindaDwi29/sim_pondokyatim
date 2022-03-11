@@ -76,22 +76,17 @@
                         </div>
                         <div class="col-xl-9 col-lg-9">
                             <div class="main-menu">
-                                <nav>
+                            <nav>
                                     <ul id="navigation">
                                         <li><a href="{{ route('beranda') }}">Beranda</a></li>
                                         <li><a href="{{ route('sejarah') }}">Sejarah</a></li>
-                                        <li><a href="#">Informasi <img src="asset/img/panah-bawah.png" alt="" height="10" width="10"></a>
-                                            <ul class="submenu">
-                                                <li><a href="{{ route('kegiatan') }}">Kegiatan</a></li>
-                                                <li><a href="{{ route('berita') }}">Berita</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="{{ route('kontak') }}">Kontak</a></li>
+                                        <li><a href="{{ route('kegiatan') }}">Artikel</a></li>
+                                        <li><a href="{{ route('kontak') }}l">Kontak</a></li>
                                     </ul>
                                 </nav>
                                 <div class="Appointment">
                                     <div class="book_btn d-none d-lg-block">
-                                        <li><a data-scroll-nav='1' href="{{ route('donasi') }}">Buat Donasi</a></li>
+                                        <a data-scroll-nav='1' href="{{ route('donasi') }}">Buat Donasi</a>
                                     </div>
                                 </div>
                             </div>
@@ -115,7 +110,7 @@
                         <div class="slider_text ">
                             <span><h3>Yayasan Panti Yatim Indonesia</h3>
                             <p>Laznas PYI Adalah Lembaga Amil Zakat Nasional (LAZNAS) berdasarkan SK Kemenag RI No.120 Tahun 2019. Bertekad menjadi lembaga pengelola dana ZISWAF yang berkhidmat menangani anak yatim/piatu dan terlantar serta memberdayakan kaum dhuafa. Berkantor pusat di kota Bandung dan cabang di Jakarta dan Bekasi. Kami saat ini mengayomi langsung lebih dari 300 anak yatim dhuafa dalam 29 asrama, 4000 anak luar asrama, dan kami masih terus berkembang.</p>
-                            <a href="{{ route('sejarah') }}" class="boxed-btn3">Learn More
+                            <a href="{{ route('sejarah') }}" class="boxed-btn3">Baca Selengkapnya
                             </a>
                         </div>
                     </div>
@@ -125,65 +120,10 @@
     </div>
     <!-- slider_area_end -->
 
-    <!-- reson_area_start  -->
-    <div class="reson_area section_padding">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="section_title text-center mb-55">
-                        <h3><span>Kegiatan</span></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_reson">
-                        <div class="thum">
-                            <div class="thum_1">
-                                <img src="asset/img/quran.jpeg" alt="">
-                            </div>
-                        </div>
-                        <div class="help_content">
-                            <h5>Kegiatan Rutin Membaca Al - Qur'an</h5>
-                            <p></p>
-                            <a href="{{ route('kegiatan') }}" class="read_more">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_reson">
-                        <div class="thum">
-                            <div class="thum_1">
-                                <img src="asset/img/kegiatan3.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="help_content">
-                            <h5>Kegiatan Qurban</h5>
-                            <p></p>
-                            <a href="{{ route('kegiatan') }}" class="read_more">Baca Selengkapnya</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_reson">
-                        <div class="thum">
-                            <div class="thum_1">
-                                <img src="asset/img/kegiatan4.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="help_content">
-                            <h4>Kegiatan Mengaji Bersama</h4>
-                            <p></p>
-                            <a href="{{ route('kegiatan') }}" class="read_more">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- reson_area_end  -->
+    
 
    
+
     <br>
     <br>
     <br>
@@ -199,7 +139,7 @@
                                 <!-- <i class="flaticon-calendar"></i> -->
                             </div>
                             <div class="events">
-                                <h3 class="counter">50</h3>
+                                <h3 class="counter">{{$anak_asuh}}</h3>
                                 <p>Jumlah Anak</p>
                             </div>
                         </div>
@@ -211,7 +151,7 @@
                                 <!-- <i class="flaticon-heart-beat"></i> -->
                             </div>
                             <div class="events">
-                                <h3 class="counter">20</h3>
+                                <h3 class="counter">{{$pengasuh}}</h3>
                                 <p>Jumlah Pengasuh</p>
                             </div>
                         </div>
@@ -223,8 +163,20 @@
                                 <!-- <i class="flaticon-hug"></i> -->
                             </div>
                             <div class="events">
-                                <h3 class="counter">20000000</h3>
-                                <p>Jumlah Donasi</p>
+                                <h3 class="counter">{{$form_donasi}}</h3>
+                                <p>Jumlah Donatur</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single_counter d-flex align-items-center justify-content-center">
+                            <div class="icon">
+                            <img src="asset/img/bank.png" alt="" height="70" width="70">
+                                <!-- <i class="flaticon-hug"></i> -->
+                            </div>
+                            <div class="events">
+                                <h3 class="">RP. {{$total_donasi}}</h3>
+                                <p>Total Donasi</p>
                             </div>
                         </div>
                     </div>
@@ -234,122 +186,7 @@
     </div>
     <!-- counter_area_end  -->
 
-    <!-- our_volunteer_area_start  -->
-    <div class="our_volunteer_area section_padding">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="section_title text-center mb-55">
-                        <h3><span>Pengasuh</span></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_volenteer">
-                        <div class="volenteer_thumb">
-                            <img src="asset/img/volenteer/1.png" alt="">
-                        </div>
-                        <div class="voolenteer_info d-flex align-items-end">
-                            <div class="info_inner">
-                                <h4>Sakil khan</h4>
-                                <p>Donner</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_volenteer">
-                        <div class="volenteer_thumb">
-                            <img src="asset/img/volenteer/2.png" alt="">
-                        </div>
-                        <div class="voolenteer_info d-flex align-items-end">
-                            <div class="info_inner">
-                                <h4>Emran Ahmed</h4>
-                                <p>Volunteer</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_volenteer">
-                        <div class="volenteer_thumb">
-                            <img src="asset/img/volenteer/3.png" alt="">
-                        </div>
-                        <div class="voolenteer_info d-flex align-items-end">
-                            <div class="info_inner">
-                                <h4>Sabbir Ahmed</h4>
-                                <p>Volunteer</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- our_volunteer_area_end  -->
-
-    <!-- news__area_start  -->
-    <div class="news__area section_padding">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="section_title text-center mb-55">
-                        <h3><span>Berita</span></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="news_active owl-carousel">
-                        <div class="single__blog d-flex align-items-center">
-                            <div class="thum">
-                                <img src="asset/img/berita6.jpeg" alt="">
-                            </div>
-                            <div class="newsinfo">
-                                <span>Jan 14, 2022</span>
-                                <a href="{{ route('berita') }}">
-                                    <h3>Di Bekasi Puluhan Anak Yatim Terima Bantuan Dari PYI Yatim dan Zakat</h3>
-                                </a>
-                                <p>Puluhan anak yatim terdampak Covid-19 terima bantuan berupa paket sembako dari PYI Yatim dan Zakat pada, Jumat (7/1). Anak-anak tersebut tinggal di sekitar Jl. Prima Harapan Regency, Kelurahan Harapan Baru, Kecamatan Bekasi Utara, Kota Bekasi. Paket sembako yang...</p>
-                                <a class="read_more" href="{{ route('berita') }}">Read More</a>
-                            </div>
-                        </div>
-                        <div class="single__blog d-flex align-items-center">
-                        <div class="thum">
-                                <img src="asset/img/berita2.jpeg" alt="">
-                            </div>
-                            <div class="newsinfo">
-                                <span>Jan 19, 2022</span>
-                                <a href="{{ route('berita') }}">
-                                    <h3>PYI Yatim dan Zakat Salurkan Bansos Untuk Bantu Kebutuhan Pangan Yatim</h3>
-                                </a>
-                                <p>PYI Yatim dan Zakat salurkan bantuan sosial (bansos) untuk bantu memenuhi kebutuhan pangan yatim terdampak Covid-19 pada, Selasa (18/1). Bansos yang disalurkan berupa paket sembako berisi beras, mie instan, minyak goreng, gula pasir, teh celup dan vitamin c. Bansos...</p>
-                                <a class="read_more" href="{{ route('berita') }}">Read More</a>
-                            </div>
-                        </div>
-                        <div class="single__blog d-flex align-items-center">
-                            <div class="thum">
-                                <img src="asset/img/beritta.jpeg" alt="">
-                            </div>
-                            <div class="newsinfo">
-                                <span> Jan 25, 2022</span>
-                                <a href="{{ route('berita') }}">
-                                    <h3>PYI Yatim dan Zakat Salurkan Bantuan di Acara Pembukaan Asrama Baru</h3>
-                                </a>
-                                <p>PYI Yatim dan Zakat salurkan bantuan kepada anak yatim dan warga dhuafa di acara pembukaan asrama baru pada, Sabtu (22/1). Bantuan yang disalurkan berbentuk paket sembako yang berisi beras, mie instan, gula pasir dan teh celup. Bantuan tersebut dibagikan setelah acara...</p>
-                                <a class="read_more" href="{{ route('berita') }}">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- news__area_end  -->
-
    
-
     <!-- footer_start  -->
     <footer class="footer">
         <div class="footer_top">

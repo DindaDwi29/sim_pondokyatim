@@ -17,11 +17,11 @@ class CreateFormDonasisTable extends Migration
             $table->id();
             $table->string('nama_donatur');
             $table->string('email')->unique();
-            $table->integer('no_telp');
-            $table->integer('nominal');
+            $table->BigInteger('no_telp');
+            $table->BigInteger('nominal');
             $table->date('tgl_transfer');
             $table->string('nama_bank');
-            $table->integer('no_rek');
+            $table->BigInteger('no_rek');
             $table->string('transfer_ke_bank');
             $table->timestamps();
         });

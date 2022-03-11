@@ -80,13 +80,8 @@
                                     <ul id="navigation">
                                         <li><a href="{{ route('beranda') }}">Beranda</a></li>
                                         <li><a href="{{ route('sejarah') }}">Sejarah</a></li>
-                                        <li><a href="#">Informasi <img src="{{ asset('asset/img/panah-bawah.png') }}" alt="" height="10" width="10"></a>
-                                            <ul class="submenu">
-                                                <li><a href="{{ route('kegiatan') }}">Kegiatan</a></li>
-                                                <li><a href="{{ route('berita') }}">Berita</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="{{ route('kontak') }}l">Kontak</a></li>
+                                        <li><a href="{{ route('kegiatan') }}">Artikel</a></li>
+                                        <li><a href="{{ route('kontak') }}">Kontak</a></li>
                                     </ul>
                                 </nav>
                                 <div class="Appointment">

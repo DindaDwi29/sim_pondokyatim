@@ -11,14 +11,17 @@
                             @csrf
                             @method('put')
                             <div class="form-group">
-                                <label for="">ID Pengasuh</label>
-                                <input type="text" name="id_pengasuh" value="{{ $anak_asuh->id_pengasuh }}" disabled
-                                    class="form-control @error('id_pengasuh') is-invalid @enderror">
-                                @error('id_pengasuh')
+                                <label for="">Nama Pengasuh</label>
+                                <select name="nama_pengasuh" class="form-control @error('nama_pengasuh') is-invalid @enderror" disabled> 
+                                @foreach(App\Models\pengasuh::get() as $data)
+                                <option value="{{$data->id}}">{{$data->nama_pengasuh}}</option>
+                                @endforeach
+                            </select>
+                                <!-- @error('nama_pengasuh')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                                @enderror -->
                             </div>
                             <div class="form-group">
                                 <label for="">Nama Anak</label>

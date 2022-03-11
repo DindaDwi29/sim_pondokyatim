@@ -75,16 +75,11 @@
                         </div>
                         <div class="col-xl-9 col-lg-9">
                             <div class="main-menu">
-                                <nav>
+                            <nav>
                                     <ul id="navigation">
                                         <li><a href="{{ route('beranda') }}">Beranda</a></li>
                                         <li><a href="{{ route('sejarah') }}">Sejarah</a></li>
-                                        <li><a href="#">Informasi <img src="{{ asset('asset/img/panah-bawah.png') }}" alt="" height="10" width="10"></a>
-                                            <ul class="submenu">
-                                                <li><a href="{{ route('kegiatan') }}">Kegiatan</a></li>
-                                                <li><a href="{{ route('berita') }}">Berita</a></li>
-                                            </ul>
-                                        </li>
+                                        <li><a href="{{ route('kegiatan') }}">Artikel</a></li>
                                         <li><a href="{{ route('kontak') }}">Kontak</a></li>
                                     </ul>
                                 </nav>
@@ -111,7 +106,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="bradcam_text text-center">
-                        <h3>Kegiatan</h3>
+                        <h3>Artikel</h3>
                     </div>
                 </div>
             </div>
@@ -126,63 +121,27 @@
             <div class="row">
                 <div class="col-lg-8 mb-5 mb-lg-0">
                     <div class="blog_left_sidebar">
+
+                    @foreach($kegiatan as $data)
                         <article class="blog_item">
                             <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="{{ asset('asset/img/quran.jpeg') }}" alt="">
+                                <img src="{{$data->image()}}" alt="" style="width:800px; height:500px;" alt="image">
                                 <a href="#" class="blog_item_date">
-                                    <h3>15</h3>
-                                    <p>Jan</p>
+                                    <h3>{{ $data->tgl_kegiatan }}</h3>
                                 </a>
                             </div>
 
                             <div class="blog_details">
                                 <a class="d-inline-block">
-                                    <h2>Kegiatan Rutin Membaca Al - Qur'an</h2>
+                                    <h2>{{ $data->judul }}</h2>
                                 </a>
-                                <p>That dominion stars lights dominion divide years for fourth have don't stars is that
-                                    he earth it first without heaven in place seed it second morning saying.</p>
+                                <p>{{ $data->isi }}</p>
                                 
                             </div>
                         </article>
+                        @endforeach
 
-                        <article class="blog_item">
-                            <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="{{ asset('asset/img/kegiatan3.jpg') }}" alt="">
-                                <a href="#" class="blog_item_date">
-                                    <h3>15</h3>
-                                    <p>Jan</p>
-                                </a>
-                            </div>
-
-                            <div class="blog_details">
-                                <a class="d-inline-block" href="single-blog.html">
-                                    <h2>Kegiatan Qurban</h2>
-                                </a>
-                                <p>That dominion stars lights dominion divide years for fourth have don't stars is that
-                                    he earth it first without heaven in place seed it second morning saying.</p>
-                               
-                            </div>
-                        </article>
-
-                        <article class="blog_item">
-                            <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="{{ asset('asset/img/kegiatan4.jpg') }}" alt="">
-                                <a href="#" class="blog_item_date">
-                                    <h3>15</h3>
-                                    <p>Jan</p>
-                                </a>
-                            </div>
-
-                            <div class="blog_details">
-                                <a class="d-inline-block" href="single-blog.html">
-                                    <h2>Kegiatan Mengaji Bersama</h2>
-                                </a>
-                                <p>That dominion stars lights dominion divide years for fourth have don't stars is that
-                                    he earth it first without heaven in place seed it second morning saying.</p>
-                                
-                            </div>
-                        </article>
-
+                        
                         <nav class="blog-pagination justify-content-center d-flex">
                             <ul class="pagination">
                                 <li class="page-item">

@@ -11,16 +11,6 @@
                             @csrf
                             @method('put')
                             <div class="form-group">
-                                <label for="">ID Pengasuh</label>
-                                <input type="text" name="id" value="{{ $pengasuh->id }}" disabled
-                                    class="form-control @error('id') is-invalid @enderror">
-                                @error('id')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="form-group">
                                 <label for="">Nama Pengasuh</label>
                                 <input type="text" name="nama_pengasuh" value="{{ $pengasuh->nama_pengasuh }}" disabled
                                     class="form-control @error('nama_pengasuh') is-invalid @enderror">

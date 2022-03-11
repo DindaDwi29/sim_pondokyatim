@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\AnakAsuhController;
 // use App\Http\Controllers\KegiatanController;
 // use App\Http\Controllers\FormDonasiController;
+use App\Http\Controllers\FrontendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
+route::get('/',[FrontendController::class,'data2']);
+
 // ->middleware('auth')
 
 Auth::routes([
@@ -81,22 +84,30 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
     Route::resource('anak_asuh', AnakAsuhController::class)->middleware(['role:Admin']);
     Route::resource('kegiatan', KegiatanController::class)->middleware(['role:Admin']);
     Route::resource('form_donasi', FormDonasiController::class)->middleware(['role:Admin']);
+    Route::post('form_donasi/tambah', [FormDonasiController::class,'tambah'])->middleware(['role:Admin']);
 
 });
+
+
+// FRONT END
 route::get('pronen', function() {
     return view('pronen.index');
 });
-route::get('/beranda', function() {
-    return view('pronen.index');
-})->name('beranda');
+// route::get('/beranda', function() {
+//     return view('pronen.index');
+// })->name('beranda');
 
 route::get('/sejarah', function() {
     return view('pronen.about');
 })->name('sejarah');
 
-route::get('/kegiatan', function() {
-    return view('pronen.kegiatan');
-})->name('kegiatan');
+route::get('/kegiatan',[FrontendController::class,'kegiatann'])->name('kegiatan');
+route::get('/beranda',[FrontendController::class,'data'])->name('beranda');
+Route::resource('donasis', FronDonasiController::class);
+route::get('/donasi', function() {
+    return view('pronen.donasi');
+})->name('donasi');
+
 
 route::get('/berita', function() {
     return view('pronen.berita');
@@ -106,6 +117,3 @@ route::get('/kontak', function() {
     return view('pronen.kontak');
 })->name('kontak');
 
-route::get('/donasi', function() {
-    return view('pronen.donasi');
-})->name('donasi');

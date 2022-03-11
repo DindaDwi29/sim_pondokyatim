@@ -17,7 +17,7 @@ class anak_asuh extends Model
 
     public function pengasuh()
     {
-        return $this->hasMany('App\Models\anak_asuh','id_pengasuh');
+        return $this->belongsTo('App\Models\pengasuh','id_pengasuh','id');
     }
 }
 

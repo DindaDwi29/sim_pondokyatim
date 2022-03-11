@@ -15,8 +15,8 @@ class pengasuh extends Model
 
     public $timestamps = true;
 
-    public function pengasuh()
+    public function anak_asuhs()
     {
-        return $this->hasMany('App\Models\pengasuh');
+        return $this->hasMany('App\Models\anak_asuh', 'id_pengasuh', 'id');
     }
 }

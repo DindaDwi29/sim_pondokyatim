@@ -75,16 +75,11 @@
                         </div>
                         <div class="col-xl-9 col-lg-9">
                             <div class="main-menu">
-                                <nav>
+                            <nav>
                                     <ul id="navigation">
                                         <li><a href="{{ route('beranda') }}">Beranda</a></li>
                                         <li><a href="{{ route('sejarah') }}">Sejarah</a></li>
-                                        <li><a href="#">Informasi <img src="{{ asset('asset/img/panah-bawah.png') }}" alt="" height="10" width="10"></a>
-                                            <ul class="submenu">
-                                                <li><a href="{{ route('kegiatan') }}">Kegiatan</a></li>
-                                                <li><a href="{{ route('berita') }}">Berita</a></li>
-                                            </ul>
-                                        </li>
+                                        <li><a href="{{ route('kegiatan') }}">Artikel</a></li>
                                         <li><a href="{{ route('kontak') }}">Kontak</a></li>
                                     </ul>
                                 </nav>
@@ -121,15 +116,24 @@
 
 
     <!--================Blog Area =================-->
+    <br>
+    <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">Donasi</div>
+                <div class="card-body">
+                   <form action="{{ route('donasis.store') }}" method="post">
+                       @csrf
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 mb-5 mb-lg-0">
-                            <div class="blog_details">
-                                <a class="d-inline-block">
-                                    <h2>FORM DONASI</h2>
-                                </a>
-                                <div class="form-group">
-                            <label for="">Nama :</label>
+                <div class="col-lg-12 mb-5 mb-lg-0">
+                    <div class="blog_details">
+                        <a class="d-inline-block">
+                            <h2>FORM DONASI</h2>
+                        </a>
+                        <div class="form-group">
+                            <label for="">Masukan Nama Donatur</label>
                             <input type="text" name="nama_donatur" class="form-control @error('nama_donatur') is-invalid @enderror">
                              @error('nama_donatur')
                                 <span class="invalid-feedback" role="alert">
@@ -148,17 +152,16 @@
                         </div>
                         <div class="form-group">
                             <label for="">No Telepon</label>
-                            <input type="text" name="no_telp" class="form-control @error('no_telp') is-invalid @enderror">
+                            <input type="number" name="no_telp" class="form-control @error('no_telp') is-invalid @enderror">
                              @error('no_telp')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
-
                         <div class="form-group">
                             <label for="">Nominal</label>
-                            <input type="text" name="nominal" class="form-control @error('nominal') is-invalid @enderror">
+                            <input type="number" name="nominal" class="form-control @error('nominal') is-invalid @enderror">
                              @error('nominal')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -175,52 +178,59 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="">Nama Bank</label>
-                            <select type="" name="nama_bank" class="form-select @error('nama_bank') is-invalid @enderror">
-                            <option selected>Pilih Nama Bank</option>
-                            <option value="1">BRI</option>
-                            <option value="2">BCA</option>
-                            <option value="3">Mandiri</option>
-                            <option value="4">BNI</option>
-                        </select>
-                             @error('nama_bank')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                                <label for="">Nama Bank</label>
+                                <select name="nama_bank" class="form-control @error('nama_bank') is-invalid @enderror">
+                                    <option value="">Pilih Bank</option>
+                                    <option value="BCA">BCA</option>
+                                    <option value="BRI">BRI</option>
+                                    <option value="Mandiri">Mandiri</option>
+                                    <option value="BNI">BNI</option>
+                                </select>
+                                @error('nama_bank')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                         </div>
                         <div class="form-group">
                             <label for="">No Rekening</label>
-                            <input type="text" name="no_rek" class="form-control @error('no_rek') is-invalid @enderror">
+                            <input type="number" name="no_rek" class="form-control @error('no_rek') is-invalid @enderror">
                              @error('no_rek')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
-                        
                         <div class="form-group">
-                            <label for="">Transfer Ke Bank</label>
-                            <select type="" name="tranfer_ke_bank" class="form-select @error('tranfer_ke_bank') is-invalid @enderror">
-                            <option selected>Pilih Nama Bank</option>
-                            <option value="1">BRI</option>
-                            <option value="2">BCA</option>
-                            <option value="3">Mandiri</option>
-                            <option value="4">BNI</option>
-                        </select>
-                             @error('tranfer_ke_bank')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                                <label for="">Trabsfer Ke Bank</label>
+                                <select name="transfer_ke_bank" class="form-control @error('transfer_ke_bank') is-invalid @enderror">
+                                    <option value="">Pilih Bank</option>
+                                    <option value="BCA">BCA 2828 555 222</option>
+                                    <option value="BRI">BRI 040 101 000 232 308</option>
+                                    <option value="Mandiri">Mandiri 132 004 118 5555</option>
+                                    <option value="BNI">BNI 123 3333 120</option>
+                                </select>
+                                @error('transfer_ke_bank')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                         </div>
                         <div class="form-group">
                             <button type="reset" class="btn btn-outline-warning">Reset</button>
                             <button type="submit" class="btn btn-outline-primary">Donasi Sekarang</button>
                         </div>
-                           
-
-                            </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+        </form>
+        <br>
+</div>
+</div>
+</div>
+</div>
+</div>
                         
 
                         
@@ -399,5 +409,7 @@
     $('.js-example-basic-multiple').select2();
 });
     </script>
+    @include('sweetalert::alert')
+
 </body>
 </html>

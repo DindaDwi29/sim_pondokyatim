@@ -17,6 +17,7 @@ class KegiatanController extends Controller
         $kegiatan = Kegiatan::all();
         return view('kegiatan.index', compact('kegiatan'));
     }
+   
 
     /**
      * Show the form for creating a new resource.
@@ -102,7 +103,7 @@ class KegiatanController extends Controller
         if ($request->hasFile('image')) {
             $kegiatan->deleteImage();
             $image = $request->file('image');
-            $name = rand(1000, 9999) . $image->getClientOriginalName();
+            $name = rand(1000, 9999)."".$request->$image->getClientOriginalName();
             $image->move('image/kegiatan', $name);
             $kegiatan->image = $name;
         }

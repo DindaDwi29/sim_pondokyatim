@@ -29,7 +29,7 @@ class AnakAsuhController extends Controller
     {
         $pengasuh = pengasuh::all();
         $anak_asuh = anak_asuh::all();
-        return view('anak_asuh.create', compact('pengasuh'));
+        return view('anak_asuh.create');
 
     }
 
@@ -42,16 +42,16 @@ class AnakAsuhController extends Controller
     public function store(Request $request)
     {
         //
-        $validated = $request->validate([
-            'id_pengasuh' => 'required',
-            'nama_anak' => 'required',
-            'jk' => 'required',
-            'tgl_lahir' => 'required',
-            'status' => 'required',
-        ]);
+        // $validated = $request->validate([
+        //     'id_pengasuh' => 'required',
+        //     'nama_anak' => 'required',
+        //     // 'jk' => 'required',
+        //     // 'tgl_lahir' => 'required',
+        //     // 'status' => 'required',
+        // ]);
 
         $anak_asuh = new anak_asuh;
-        $anak_asuh->id_pengasuh = $request->id_pengasuh;
+        $anak_asuh->id_pengasuh = $request->nama_pengasuh;
         $anak_asuh->nama_anak = $request->nama_anak;
         $anak_asuh->jk = $request->jk;
         $anak_asuh->tgl_lahir = $request->tgl_lahir;
@@ -99,16 +99,16 @@ class AnakAsuhController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $validated = $request->validate([
-            'id_pengasuh' => 'required',
-            'nama_anak' => 'required',
-            'jk' => 'required',
-            'tgl_lahir' => 'required',
-            'status' => 'required',
-        ]);
+        // $validated = $request->validate([
+        //     'id_pengasuh' => 'required',
+        //     'nama_anak' => 'required',
+        //     'jk' => 'required',
+        //     'tgl_lahir' => 'required',
+        //     'status' => 'required',
+        // ]);
 
         $anak_asuh = anak_asuh::findOrFail($id);
-        $anak_asuh->id_pengasuh = $request->id_pengasuh;
+        $anak_asuh->id_pengasuh = $request->nama_pengasuh;
         $anak_asuh->nama_anak = $request->nama_anak;
         $anak_asuh->jk = $request->jk;
         $anak_asuh->tgl_lahir = $request->tgl_lahir;

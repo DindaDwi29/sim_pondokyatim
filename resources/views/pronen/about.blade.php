@@ -76,16 +76,11 @@
                         </div>
                         <div class="col-xl-9 col-lg-9">
                             <div class="main-menu">
-                                <nav>
+                            <nav>
                                     <ul id="navigation">
                                         <li><a href="{{ route('beranda') }}">Beranda</a></li>
                                         <li><a href="{{ route('sejarah') }}">Sejarah</a></li>
-                                        <li><a href="#">Informasi<img src="{{ asset('asset/img/panah-bawah.png') }}" alt="" height="10" width="10"></a>
-                                            <ul class="submenu">
-                                                <li><a href="{{ route('kegiatan') }}">Kegiatan</a></li>
-                                                <li><a href="{{ route('berita') }}">Berita</a></li>
-                                            </ul>
-                                        </li>
+                                        <li><a href="{{ route('kegiatan') }}">Artikel</a></li>
                                         <li><a href="{{ route('kontak') }}">Kontak</a></li>
                                     </ul>
                                 </nav>
@@ -461,7 +456,7 @@
                             <span><h3>Sejarah</h3>
                             <p>Berawal dari kesepakatan beberapa pedagang di lingkungan Pasar Induk Caringin Bandung Jawa Barat Indonesia , pada tahun 1998 tepatnya di Gang Porib III, RT 003/002 Kelurahan Babakan Ciparay, Kecamatan Babakan Ciparay Kota  Bandung, bermodal rumah kontrakan untuk menampung 4 anak yatim untuk disekolahkan, yang  sebelumnya tidur dan mencari makan di sekitar pasar tersebut.</p><br>
                             <p>Seiring dengan semakin bertambahnya anak yang di tampung, maka di buatlah lembaga formal pada tanggal 18 April 1998 yang diberi nama Nurul Ummah yang berarti Cahaya Umat, disepakati menjadi sebuah  Panti Asuhan di bawah naungan organisasi masyarakat Yayasan Al-fajr. Dibina langsung Dinas Sosial Kota Bandung dan bergabung dalam Forum  Komunikasi Lembaga Kesejahteraan Sosial Anak  (LKSA)  Kota  Bandung.</P><br>
-                            <img src="{{ asset('asset/img/about.jpg') }}" alt="" height="400" width="700"><br>
+                            <img src="{{ asset('asset/img/about.jpg') }}" alt="" height="400" width="700"><br><br>
                             <p>Tahun  2009 ,  PSAA Nurul Ummah berganti nama menjadi Panti Yatim  Indonesia  (PYI)  dan  mengadakan perubahan manajemen, sistem pelayanan kepada anak asuh dan kepada donatur serta pembukaan beberapa cabang asrama di wilayah kota Bandung, dengan mengusung slogan Menyayangi Sepenuh Hati, kepercayaan donatur kepada kami semakin meningkat.</p><br>
                             <img src="{{ asset('asset/img/panti1.png') }}" alt="" height="300" width="500"><br>
                         </div>
@@ -637,6 +632,8 @@
     <script src="{{ asset('asset/js/mail-script.js') }}"></script>
 
     <script src="{{ asset('asset/js/main.js') }}"></script>
+    @include('sweetalert::alert')
+
 </body>
 
 </html>

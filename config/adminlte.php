@@ -45,8 +45,8 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>Admin</b>Panti',
+    'logo_img' => 'vendor/adminlte/dist/img/logo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -227,20 +227,11 @@ return [
     'menu' => [
         // Navbar items:
         [
-            'type'         => 'navbar-search',
-            'text'         => 'search',
-            'topnav_right' => true,
-        ],
-        [
             'type'         => 'fullscreen-widget',
             'topnav_right' => true,
         ],
 
         // Sidebar items:
-        [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
@@ -249,22 +240,22 @@ return [
         [
             'text'  => 'Kegiatan',
             'url'   => 'admin/kegiatan',
-            'icon'  => 'far fa-fw fa-file'
+            'icon'  => 'fas fa-list-ul'
         ],
         [
             'text'  => 'Pengasuh',
             'url'   => 'admin/pengasuh',
-            'icon'  => 'far fa-fw fa-file'
+            'icon'  => 'fa fa-users'
         ],
         [
             'text'  => 'Anak Asuh',
             'url'   => 'admin/anak_asuh',
-            'icon'  => 'far fa-fw fa-file'
+            'icon'  => 'fas fa-child'
         ],
         [
             'text'  => 'Form Donasi',
             'url'   => 'admin/form_donasi',
-            'icon'  => 'far fa-fw fa-file'
+            'icon'  => 'fas fa-ribbon'
         ],
     ],
 

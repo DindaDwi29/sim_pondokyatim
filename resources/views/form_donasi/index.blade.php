@@ -26,7 +26,7 @@
                             <table class="table">
                                 <tr>
                                     <th>No</th>
-                                    <th>ID Donasi</th>
+                                    
                                     <th>Nama Donatur</th>
                                     <th>Email</th>
                                     <th>No Telp</th>
@@ -41,7 +41,7 @@
                                 @foreach ($form_donasi as $data)
                                     <tr>
                                         <td>{{ $no++ }}</td>
-                                        <td>{{ $data->$id_donasi }}</td>
+                                    
                                         <td>{{ $data->nama_donatur }}</td>
                                         <td>{{ $data->email }}</td>
                                         <td>{{ $data->no_telp }}</td>
@@ -63,7 +63,7 @@
                                             </form>
                                         </td>
                                     </tr>
-                                @endforeach
+                              @endforeach
                             </table>
                         </div>
                     </div>

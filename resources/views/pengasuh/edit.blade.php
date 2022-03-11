@@ -11,7 +11,7 @@
                             @csrf
                             @method('put')
 
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="">ID Pengasuh</label>
                                 <input type="text" name="id_pengasuh" value="{{ $pengasuh->id_pengasuh }}"
                                     class="form-control @error('id_pengasuh') is-invalid @enderror">
@@ -20,7 +20,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <label for="">Nama Pengasuh</label>
                                 <input type="text" name="nama_pengasuh" value="{{ $pengasuh->nama_pengasuh }}"
@@ -33,13 +33,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Jenis Kelamin</label>
-                                <input type="text" name="jk" value="{{ $pengasuh->jk }}"
-                                    class="form-control @error('jk') is-invalid @enderror">
-                                @error('jk')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                            <select name="jk" class="form-control @error('jk') is-invalid @enderror">
+                                <option value="">Pilih Jenis Kelamin</option>
+                                <option value="Laki - Laki">Laki - Laki</option>
+                                <option value="Perempuan">Perempuan</option>
+                            </select>
                             </div>
                             <div class="form-group">
                                 <label for="">Tanggal Lahir</label>

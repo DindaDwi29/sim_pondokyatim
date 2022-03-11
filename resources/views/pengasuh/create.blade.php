@@ -21,7 +21,7 @@
                    <form action="{{route('pengasuh.store')}}" method="post">
                         @csrf
                        
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for=""> Masukan ID </label>
                             <input type="text" name="id_pengasuh" class="form-control @error('id_pengasuh') is-invalid @enderror">
                              @error('id_pengasuh')
@@ -29,7 +29,7 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label for="">Masukan Nama Pengasuh</label>
                             <input type="text" name="nama_pengasuh" class="form-control @error('nama_pengasuh') is-invalid @enderror">
@@ -40,14 +40,13 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="">Jenis Kelamin</label>
-                            <input type="text" name="jk" class="form-control @error('jk') is-invalid @enderror">
-                             @error('jk')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
+                                <label for="">Jenis Kelamin</label>
+                            <select name="jk" class="form-control @error('jk') is-invalid @enderror">
+                                <option value="">Pilih Jenis Kelamin</option>
+                                <option value="Laki - Laki">Laki - Laki</option>
+                                <option value="Perempuan">Perempuan</option>
+                            </select>
+                            </div>
                         <div class="form-group">
                             <label for="">Tanggal Lahir</label>
                             <input type="date" name="tgl_lahir" class="form-control @error('tgl_lahir') is-invalid @enderror">

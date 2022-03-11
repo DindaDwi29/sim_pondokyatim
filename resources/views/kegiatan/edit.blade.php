@@ -33,13 +33,14 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Isi</label>
-                                <input type="textarea" name="isi" value="{{ $kegiatan->isi }}"
+                                <textarea type="textarea" name="isi" value="{{ $kegiatan->isi }}"
                                     class="form-control @error('isi') is-invalid @enderror">
                                 @error('isi')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                                </textarea>
                             </div>
                             <div class="form-group">
                                 <label for="">Tanggal Kegiatan</label>

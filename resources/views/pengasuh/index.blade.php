@@ -26,7 +26,7 @@
                             <table class="table">
                                 <tr>
                                     <th>No</th>
-                                    <th>ID </th>
+                                    <!-- <th>ID </th> -->
                                     <th>Nama Pengasuh</th>
                                     <th>Jenis Kelamin</th>
                                     <th>Tanggal Lahir</th>
@@ -36,7 +36,7 @@
                                 @foreach ($pengasuh as $data)
                                     <tr>
                                         <td>{{ $no++ }}</td>
-                                        <td>{{ $data->id_pengasuh }}</td>
+                                        <!-- <td>{{ $data->id_pengasuh }}</td> -->
                                         <td>{{ $data->nama_pengasuh }}</td>
                                         <td>{{ $data->jk }}</td>
                                         <td>{{ $data->tgl_lahir }}</td>

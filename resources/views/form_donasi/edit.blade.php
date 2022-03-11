@@ -63,14 +63,19 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Nama Bank</label>
-                                <input type="text" name="nama_bank" value="{{ $form_donasi->nama_bank }}"
-                                    class="form-control @error('nama_bank') is-invalid @enderror">
+                                <select name="nama_bank" class="form-control @error('nama_bank') is-invalid @enderror">
+                                    <option value="">Pilih Bank</option>
+                                    <option value="BCA">BCA</option>
+                                    <option value="BRI">BRI</option>
+                                    <option value="Mandiri">Mandiri</option>
+                                    <option value="BNI">BNI</option>
+                                </select>
                                 @error('nama_bank')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
+                        </div>
                             <div class="form-group">
                                 <label for="">No Rekening</label>
                                 <input type="text" name="no_rek" value="{{ $form_donasi->no_rek }}"
@@ -82,15 +87,20 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="">Tranfer Ke Bank</label>
-                                <input type="text" name="transfer_ke_bank" value="{{ $form_donasi->transfer_ke_bank }}"
-                                    class="form-control @error('transfer_ke_bank') is-invalid @enderror">
+                                <label for="">Trabsfer Ke Bank</label>
+                                <select name="transfer_ke_bank" class="form-control @error('transfer_ke_bank') is-invalid @enderror">
+                                    <option value="">Pilih Bank</option>
+                                    <option value="BCA">BCA 2828 555 222</option>
+                                    <option value="BRI">BRI 040 101 000 232 308</option>
+                                    <option value="Mandiri">Mandiri 132 004 118 5555</option>
+                                    <option value="BNI">BNI 123 3333 120</option>
+                                </select>
                                 @error('transfer_ke_bank')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
+                        </div>
                             <div class="form-group">
                                 <button type="reset" class="btn btn-outline-warning">Reset</button>
                                 <button type="submit" class="btn btn-outline-primary">Simpan</button>

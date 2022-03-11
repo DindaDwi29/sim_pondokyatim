@@ -11,14 +11,17 @@
                             @csrf
                             @method('put')
                             <div class="form-group">
-                                <label for="">ID Pengasuh</label>
-                                <input type="text" name="id_pengasuh" value="{{ $anak_asuh->id_pengasuh }}"
-                                    class="form-control @error('id_pengasuh') is-invalid @enderror">
-                                @error('id_pengasuh')
+                                <label for="">Nama Pengasuh</label>
+                                <select name="nama_pengasuh" class="form-control @error('nama_pengasuh') is-invalid @enderror">
+                                @foreach(App\Models\pengasuh::get() as $data)
+                                <option value="{{$data->id}}">{{$data->nama_pengasuh}}</option>
+                                @endforeach
+                            </select>
+                                <!-- @error('nama_pengasuh')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                                @enderror -->
                             </div>
                             <div class="form-group">
                                 <label for="">Nama Anak</label>
@@ -32,13 +35,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Jenis Kelamin</label>
-                                <input type="text" name="jk" value="{{ $anak_asuh->jk }}"
-                                    class="form-control @error('jk') is-invalid @enderror">
-                                @error('jk')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                            <select name="jk" class="form-control @error('jk') is-invalid @enderror">
+                                <option value="">Pilih Jenis Kelamin</option>
+                                <option value="Laki - Laki">Laki - Laki</option>
+                                <option value="Perempuan">Perempuan</option>
+                            </select>
                             </div>
                             <div class="form-group">
                                 <label for="">Tanggal Lahir</label>
@@ -53,15 +54,14 @@
 
                             <div class="form-group">
                                 <label for="">Status</label>
-                                <input type="text" name="status" value="{{ $anak_asuh->status }}"
-                                    class="form-control @error('status') is-invalid @enderror">
-                                @error('status')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                            <select name="status" class="form-control @error('status') is-invalid @enderror">
+                                <option value="">Pilih Status</option>
+                                <option value="Yatim">Yatim</option>
+                                <option value="Piatu">Piatu</option>
+                                <option value="Yatim Piatu">Yatim Piatu</option>
+                                
+                            </select>
                             </div>
-
                             <div class="form-group">
                                 <button type="reset" class="btn btn-outline-warning">Reset</button>
                                 <button type="submit" class="btn btn-outline-primary">Simpan</button>
