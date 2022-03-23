@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 
 class TampilanController extends Controller
 {
-    {
-        $anak_asuh= DB::table('anak_asuh')->count();
-        $pengasuh= DB::table('pengasuh')->count();
-        $form_donasi= DB::table('form_donasi')->count();
-        return view('admin.dashboard', compact('anak_asuh','pengasuh','form_donasi'));
-    }
+    // {
+    //     $anak_asuh= DB::table('anak_asuh')->count();
+    //     $pengasuh= DB::table('pengasuh')->count();
+    //     $form_donasi= DB::table('form_donasi')->count();
+    //     return view('admin.dashboard', compact('anak_asuh','pengasuh','form_donasi'));
+    // }
 
     public function dashboardUser()
     {

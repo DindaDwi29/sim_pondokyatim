@@ -19,8 +19,8 @@ class kegiatan extends Model
 
     public function image()
     {
-        if ($this->image && file_exists(public_path('image/kegiatan/' . $this->image))) {
-            return asset('image/kegiatan/' . $this->image);
+        if ($this->image && file_exists(public_path('image/' . $this->image))) {
+            return asset('image/' . $this->image);
         } else {
             return asset('image/no_image.png');
         }
@@ -28,8 +28,8 @@ class kegiatan extends Model
 
     public function deleteImage()
     {
-        if ($this->image && file_exists(public_path('image/kegiatan/' . $this->image))) {
-            return unlink(public_path('image/kegiatan/' . $this->image));
+        if ($this->image && file_exists(public_path('image/' . $this->image))) {
+            return unlink(public_path('image/' . $this->image));
         }
     }
 }

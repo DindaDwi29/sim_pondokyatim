@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\kegiatan;
 use Illuminate\Http\Request;
+use Alert;
+use Session;
 
 class KegiatanController extends Controller
 {
@@ -39,7 +41,7 @@ class KegiatanController extends Controller
     {
         $validated = $request->validate([
             'judul' => 'required',
-            'image' => 'required',
+            'image' => 'required|image|max:2048',
             'isi' => 'required',
             'tgl_kegiatan' => 'required',
             
@@ -50,11 +52,16 @@ class KegiatanController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $name = rand(1000, 9999) . $image->getClientOriginalName();
-            $image->move('image/kegiatan', $name);
+            $image->move('image/', $name);
             $kegiatan->image  = $name;
         }
         $kegiatan->isi = $request->isi;
         $kegiatan->tgl_kegiatan = $request->tgl_kegiatan;
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Data saved successfully",
+        ]);
+        Alert::success('Success Menambahkan Kegiatan');
         $kegiatan->save();
         return redirect()->route('kegiatan.index');
     }
@@ -92,25 +99,59 @@ class KegiatanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validated = $request->validate([
+
+        $request->validate([
             'judul' => 'required',
-            'image' => 'required',
+            // 'image' => 'required',
             'isi' => 'required',
             'tgl_kegiatan' => 'required',
         ]);
-        $kegiatan = Kegiatan::findOrFail($id);
+
+        $kegiatan = kegiatan::findOrFail($id);
         $kegiatan->judul = $request->judul;
+        // upload image / foto
         if ($request->hasFile('image')) {
-            $kegiatan->deleteImage();
             $image = $request->file('image');
-            $name = rand(1000, 9999)."".$request->$image->getClientOriginalName();
-            $image->move('image/kegiatan', $name);
-            $kegiatan->image = $name;
+            $name = rand(1000, 9999) . $image->getClientOriginalName();
+            $image->move('image/', $name);
+            $kegiatan-> image = $name;
+        } else{
+            $kegiatan->image = $kegiatan->image;
         }
         $kegiatan->isi = $request->isi;
         $kegiatan->tgl_kegiatan = $request->tgl_kegiatan;
+        Alert::success('Success Mengedit kegiatan');
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Data edited successfully",
+        ]);
         $kegiatan->save();
         return redirect()->route('kegiatan.index');
+        //  $validated = $request->validate([
+        //     'judul' => 'required',
+        //      'image' => 'required',
+        //     'isi' => 'required',
+        //     'tgl_kegiatan' => 'required',
+            
+        // ]);
+
+        // $kegiatan = Kegiatan::findOrFail($id);
+        // $kegiatan->judul = $request->judul;
+        // if ($request->hasFile('image')) {
+        //     $image = $request->file('image');
+        //     $name = rand(1000, 9999) ."".$request->$image->getClientOriginalName();
+        //     $image->move('image/', $name);
+        //     $kegiatan->image  = $name;
+        // }
+        // $kegiatan->isi = $request->isi;
+        // $kegiatan->tgl_kegiatan = $request->tgl_kegiatan;
+        // Session::flash("flash_notification", [
+        //     "level" => "success",
+        //     "message" => "Data saved successfully",
+        // ]);
+        // Alert::success('Success Mengubah Kegiatan');
+        // $kegiatan->save();
+        // return redirect()->route('kegiatan.index');
     }
 
     /**

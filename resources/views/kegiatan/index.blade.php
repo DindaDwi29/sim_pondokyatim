@@ -12,6 +12,8 @@
 @endsection
 
 @section('content')
+@include('layouts._flash')
+@include('sweetalert::alert')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
@@ -37,7 +39,7 @@
                                     <tr>
                                         <td>{{ $no++ }}</td>
                                         <td>{{ $data->judul }}</td>
-                                        <td><img src="{{$data->image()}}" alt="" style="width:150px; height:150px;" alt="image"></td>
+                                        <td><img src="{{ $data->image() }}" alt="" style="width:150px; height:150px;" alt="image"></td>
                                         <td>{{ $data->isi }}</td>
                                         <td>{{ $data->tgl_kegiatan }}</td>
                                         <td>

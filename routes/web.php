@@ -103,7 +103,9 @@ route::get('/sejarah', function() {
 
 route::get('/kegiatan',[FrontendController::class,'kegiatann'])->name('kegiatan');
 route::get('/beranda',[FrontendController::class,'data'])->name('beranda');
+
 Route::resource('donasis', FronDonasiController::class);
+
 route::get('/donasi', function() {
     return view('pronen.donasi');
 })->name('donasi');

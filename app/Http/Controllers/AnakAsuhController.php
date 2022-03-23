@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\anak_asuh;
 use App\Models\pengasuh;
 use Illuminate\Http\Request;
+use Alert;
+use Session;
 
 class AnakAsuhController extends Controller
 {
@@ -56,6 +58,11 @@ class AnakAsuhController extends Controller
         $anak_asuh->jk = $request->jk;
         $anak_asuh->tgl_lahir = $request->tgl_lahir;
         $anak_asuh->status = $request->status;
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Data saved successfully",
+        ]);
+        Alert::success('Success Mengubah Kegiatan');
         $anak_asuh->save();
         return redirect()->route('anak_asuh.index');
 
@@ -113,6 +120,11 @@ class AnakAsuhController extends Controller
         $anak_asuh->jk = $request->jk;
         $anak_asuh->tgl_lahir = $request->tgl_lahir;
         $anak_asuh->status = $request->status;
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Data edited successfully",
+        ]);
+        Alert::success('Success Mengubah Kegiatan');
         $anak_asuh->save();
         return redirect()->route('anak_asuh.index');
 
@@ -128,6 +140,11 @@ class AnakAsuhController extends Controller
     {
         //
         $anak_asuh = anak_asuh::findOrFail($id);
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Data deleted successfully",
+        ]);
+        Alert::success('Success Mengubah Kegiatan');
         $anak_asuh->delete();
         return redirect()->route('anak_asuh.index');
 

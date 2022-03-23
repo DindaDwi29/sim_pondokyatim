@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Pengasuh;
 use Illuminate\Http\Request;
+use Alert;
+use Session;
 
 class PengasuhController extends Controller
 {
@@ -49,6 +51,11 @@ class PengasuhController extends Controller
         $pengasuh->nama_pengasuh = $request->nama_pengasuh;
         $pengasuh->jk = $request->jk;
         $pengasuh->tgl_lahir = $request->tgl_lahir;
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Data saved successfully",
+        ]);
+        Alert::success('Success Menambahkan Pengasuh');
         $pengasuh->save();
         return redirect()->route('pengasuh.index');
     }
@@ -98,6 +105,11 @@ class PengasuhController extends Controller
         $pengasuh->nama_pengasuh = $request->nama_pengasuh;
         $pengasuh->jk = $request->jk;
         $pengasuh->tgl_lahir = $request->tgl_lahir;
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Data saved successfully",
+        ]);
+        Alert::success('Success Mengubah Kegiatan');
         $pengasuh->save();
         return redirect()->route('pengasuh.index');
     }
@@ -111,6 +123,11 @@ class PengasuhController extends Controller
     public function destroy($id)
     {
         $pengasuh = Pengasuh::findOrFail($id);
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Data deleted successfully",
+        ]);
+        Alert::success('Success Mengubah Kegiatan');
         $pengasuh->delete();
         return redirect()->route('pengasuh.index');
     }

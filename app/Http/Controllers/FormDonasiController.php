@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\form_donasi;
 use Illuminate\Http\Request;
+use Alert;
+use Session;
 
 class FormDonasiController extends Controller
 {
@@ -58,6 +60,11 @@ class FormDonasiController extends Controller
         $form_donasi->nama_bank = $request->nama_bank;
         $form_donasi->no_rek = $request->no_rek;
         $form_donasi->transfer_ke_bank = $request->transfer_ke_bank;
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Data saved successfully",
+        ]);
+        Alert::success('Success Mengubah Kegiatan');
         $form_donasi->save();
         return redirect()->route('form_donasi.index');
     }
@@ -117,6 +124,11 @@ class FormDonasiController extends Controller
         $form_donasi->nama_bank = $request->nama_bank;
         $form_donasi->no_rek = $request->no_rek;
         $form_donasi->transfer_ke_bank = $request->transfer_ke_bank;
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Data saved successfully",
+        ]);
+        Alert::success('Success Mengubah Kegiatan');
         $form_donasi->save();
         return redirect()->route('form_donasi.index');
 
@@ -131,6 +143,11 @@ class FormDonasiController extends Controller
     public function destroy($id)
     {
         $form_donasi = form_donasi::findOrFail($id);
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Data deleted successfully",
+        ]);
+        Alert::success('Success Mengubah Kegiatan');
         $form_donasi->delete();
         return redirect()->route('form_donasi.index');
     }

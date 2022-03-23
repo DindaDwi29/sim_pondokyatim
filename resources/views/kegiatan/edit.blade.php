@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">Edit Kegiatan</div>
                     <div class="card-body">
-                        <form action="{{ route('kegiatan.update', $kegiatan->id) }}" method="post">
+                        <form action="{{ route('kegiatan.update', $kegiatan->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('put')
 
@@ -22,25 +22,24 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="">Gambar</label>
-                                <input type="file" name="image" value="{{ $kegiatan->image }}"
-                                    class="form-control @error('image') is-invalid @enderror">
-                                @error('image')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                            <img src="{{ asset('image/'.$kegiatan->image) }}" height="100" style="padding:10px;" />
+                            <input type="file" name="image" class="form-control @error('image') is-invalid @enderror">
+                             @error('image')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
                             <div class="form-group">
                                 <label for="">Isi</label>
-                                <textarea type="textarea" name="isi" value="{{ $kegiatan->isi }}"
+                                <input type="text" name="isi" value="{{ $kegiatan->isi }}"
                                     class="form-control @error('isi') is-invalid @enderror">
                                 @error('isi')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                                </textarea>
+                                </input>
                             </div>
                             <div class="form-group">
                                 <label for="">Tanggal Kegiatan</label>
